@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+body{
+    background-color: aliceblue;
+    font-family: 'Quicksand', sans-serif;
+}
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+}
+nav ul li select, a{
+    text-decoration: none;
+    font-weight: bold;
+    color: darkcyan;
+}
+nav ul li select{
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+}
+nav ul li a select, nav ul li a select option{
+    font-size: 17px;
+}
+nav ul li a{
+    font-size: 20px;
+    margin-right: 20px;
+}
+nav{
+    margin-top: 5px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}
+header h1{
+    color: darkcyan;
+    font-weight: normal;
+}
+header span{
+    color: rgb(150, 114, 184);
+    font-weight: bold;
+}
+header img{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+.left{
+    margin-top: -10px;
+    display: flex;
+}
+section .alarm_part{
+    display: flex;
+}
+section .alarm_part img{
+    width: 40px;
+    margin-right: 20px;
+}
+.alarm_part{
+    padding: 10px;
+    align-items: center;
+}
+.description_image{
+    color: aliceblue;
+    font-weight: normal;
+}
+.money{
+    display: flex;
+}
+.money .saving, .current{
+    padding: 20px;
+}
+.one{
+    display: flex;
+    border: 1px solid darkcyan;
+    justify-content: space-between;
+    background-image: -webkit-radial-gradient(circle,  #a04f72, rgb(184, 151, 216), rgb(207, 179, 216));
+    background-image: -moz-radial-gradient(circle,  #a04f72, rgb(184, 151, 216), rgb(207, 179, 216));
+    background-image: -o-radial-gradient(circle,  #a04f72, rgb(184, 151, 216), rgb(207, 179, 216));
+}
+.saving{
+    opacity: 0.7;
+    border-right:3px solid rgb(207, 179, 216);
+}
+.description_money{
+    font-weight: normal;
+    color: white;
+}
+.account{
+   font-size: 30px;
+   font-weight: normal;
+   color: aliceblue;
+   opacity: .8; 
+}
+
+.details_account{
+    display: flex;
+}
+.details_account .transfer{
+    display: flex;
+}
+.details_account .transfer h3{
+    margin-right: 500px;
+}
+.details_account .transfer p{
+    color: aliceblue;
+    background-color: rgb(192, 129, 252);
+    padding: 10px;
+    border-radius: 6px;
+}
+.details_account .transfer .new_transfer{
+    text-decoration: none;
+    font-weight: normal;
+    color: aliceblue;
+}
+.details{
+    border-top-left-radius:6px;
+    border-bottom-left-radius: 6px;
+}
+.details,.mount, .available{
+    border: 0.5px solid rgb(201, 186, 186);
+    padding: 15px;
+    margin: 3px;
+    align-items: center;
+    width: 200px;
+}
+.mount, .available{
+    width: 207px;
+}
+.mount{
+    font-size: 30px;
+    color: cadetblue;
+    padding-top: 30px;
+}
+.details .name{
+    color: rgb(150, 91, 204);
+}
+.available{
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.available .name_av{
+    color: rgb(29, 183, 230);
+}
+.description_person{
+    border: 2px solid #a04f72;
+    text-align: center;
+    padding: 20px;
+    border-radius: 7px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.description_person img{
+    width: 120px;
+    height: 120px;
+    border-radius: 70%; 
+}
+.operation{
+    display: flex;
+}
+.about_person{
+    margin-top: 20px;
+    margin-left: 100px;
+    width: 500px;
+}
+#two{
+    /* flex-wrap: wrap; */
+    display: flex;
+}
+.operation_left, .operation_right{
+    width: 245px;
+    padding: 10px;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border: 1px solid #e4c4d2;
+}
+
+.operation_left, .operation_right p{
+    text-align: center;
+    color: rgb(95, 110, 110);
+}
+@media screen and (max-width: 600px) {
+    html, body{
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    header, nav{
+        flex-wrap: wrap;
+    }
+    .one{
+        flex-wrap: wrap;
+    }
+    .details_account{
+        scroll-snap-type: x mandatory;
+        display: flex !important;
+        width: 100%;
+        overflow-x: scroll;
+    }
+    .details,
+     .available,
+     .mount{
+        box-sizing: border-box;
+        flex-shrink: 0;
+        width: 100%;
+        padding: 1px;
+        scroll-snap-align: center;
+    }
+    #two{
+        flex-wrap: wrap;
+    }
+    .about_person{
+        width: 100%;
+        margin-left: 0;
+    }
+    .operation_left,
+    .operation_right{
+        width: 100%;
+        padding: 1px;
+    }
+
+}

@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+table{
+    background-color: #072749;
+    margin: auto;
+    border-collapse: collapse;
+}
+td, th{
+    border: 1px solid #2f92f9;
+    padding: 20px 30px;
+    color: aliceblue;
+}
+caption{
+    /* Placer le titre du tableau */
+    caption-side: bottom;
+    font-size: clamp(1rem, 1.5rem, 2.2rem);
+}
+.class{
+    margin-top: 40px;
+}

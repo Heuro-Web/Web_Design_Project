@@ -1,0 +1,31 @@
+@media screen and (max-width: 600px) {
+    .realisations {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; /* espace entre les cards */
+  overflow-x: auto; /* permet le défilement horizontal */
+  scroll-snap-type: x mandatory; /* optionnel : snap pour une meilleure UX */
+  padding-bottom: 1rem;
+}
+
+.realisation {
+  min-width: 250px; /* largeur minimale de chaque card */
+  flex: 0 0 auto; /* empêche les cards de s'étirer */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  scroll-snap-align: start; /* pour activer le snapping */
+  transition: transform 0.3s ease;
+}
+
+.realisation:hover {
+  transform: scale(1.03);
+}
+
+.realisation img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+}

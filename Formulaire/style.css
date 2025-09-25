@@ -1,0 +1,9 @@
+p{
+    width: 250px;
+    height: 200px;
+    border: 1px solid blue;
+    overflow: auto;
+    padding: 10px;
+    /* text-overflow: ellipsis;
+    white-space: nowrap; */
+}

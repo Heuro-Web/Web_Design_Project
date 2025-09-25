@@ -1,0 +1,88 @@
+/* body{
+    background-color: black;
+} */
+.span{
+    /* position: absolute;
+    width: 100%;
+    height: 100%; */
+    display: flex;
+    color: yellowgreen;
+    background-color: aliceblue;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+
+}
+.css{
+    outline-width: medium; /* L'epaisseur du contour il peut etre thin, medium, thick*/
+    outline-color: blueviolet; /* La couleur du contour*/
+    outline-style: groove; /* Le style du contour*/
+    width: 100px;
+    height: 200px;
+    color: aliceblue;
+}
+/* ul{
+    list-style-position: inside; /* La position de la puce , outside par defaut
+    list-style-type: lower-alpha; le type de puce exemple carre 
+    list-style-image: url(jeb.png);  Mettre une image en guise de puce 
+} */
+ol{
+    list-style: inside square url(jeb.png);
+}
+table{
+    border-collapse: collapse;
+    background-color: rgb(114, 114, 100);
+}
+.bord{
+    border-collapse: separate;
+    empty-cells: hide; /* Masquer les cellules vides ou les afficher */
+}
+.span::after{
+    content: "";
+    animation: noble 1.7s linear infinite;
+}
+@keyframes noble{
+    0%{
+        content: "L";
+    }
+    10%{
+        content: "Lo";
+    }
+    20%{
+        content: "Loa";
+    }
+    30%{
+        content: "Load";
+    }
+    40%{
+        content: "Loadi";
+    }
+    50%{
+        content: "Loadin";
+    }
+    60%{
+        content: "Loading";
+    }
+    70%{
+        content: "Loading.";
+    }
+    80%{
+        content: "Loading..";
+    }
+    90%{
+        content: "Loading...";
+    }
+    100%{
+        content: "Loading....";
+    }
+}
+ ul{
+     /* transform: matrix(1.0, 2.0, 3.0, 4.0, 0.0, 0.0); */
+      /* transform: translate(12px, 50%) */
+      /* transform: scaleX(2);     */
+    /* transform: rotate(0.5turn); */
+    transform: skew(34deg, -45deg);
+    overflow-x: scroll;
+}

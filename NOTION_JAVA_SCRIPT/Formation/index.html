@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Course</title>
+</head>
+<body>
+    <button id="dark">
+         Dark
+    </button>
+    <script>
+    //    Notion changement de background
+
+    const classebutton = document.querySelector('#dark')
+    const body = document.querySelector('body')
+    const tab_color = [{
+        color: 'red'
+    },
+    {
+        color : "blue"
+    },
+    {
+        color : "yellow"
+    },
+    {
+        color : "cyan"
+    },
+        {
+        color : "black"
+    }
+]
+    let i = 0
+    classebutton.addEventListener('click', ()=>{
+        setInterval(() => {
+            body.style.background = tab_color[i].color
+            const p = document.createElement('p')
+            p.innerText = tab_color[i].color
+            body.insertBefore(p, classebutton)
+            i ++
+            if(i > tab_color.length - 1){
+                i = 0
+            }
+        }, 800);
+
+        
+    })
+    // classebutton.addEventListener('load', () =>{
+    //     body.style.background = 'red'
+    //     classebutton.innerText = 'Light'
+
+    // })
+
+    </script>
+</body>
+</html>

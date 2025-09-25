@@ -1,0 +1,61 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* .elements{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 200px;
+}
+.element{
+    border-left: 5px solid #2f92f9;
+    border-radius: 10px;
+    box-shadow: 3px 2px 7px #caa6ca;
+} */
+ .conteneur{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 100px 100px 100px 100px;
+    gap: 20px;
+ }
+ .box1,.box2, .box3, .box4, .box5, .box6,
+    .box7, .box8, .box9{
+    border: 2px solid #2f92f9;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+ }
+ /* Mesurez les colonnes, nous devons specifier le point d'aller,
+ et le point d'arriver, donc le box 1 va de la colonne 1 a
+ la colonne max + 1
+  */
+ .box1{
+    grid-column-start: 1;
+    grid-column-end: 4;
+ }
+ /* Mesurez nos rangees, le box 2 commence a la rangee 2 parce que
+ le box 1 occupe toute une rangee */
+ .box2{
+    grid-row-start: 2; /*  indique la ligne horizontale de départ de l'élément */
+    grid-row-end: 4;
+ }
+
+ .box4{
+    /* grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4; */
+    
+    /* ou bien  */
+
+    /* grid-column: 3/4;
+    grid-row: 2/4; */
+ }
+ .box6{
+    grid-column: 1/3;
+    grid-row: 4/5;
+ }
+ .box7{
+    grid-column: 3/4;
+    grid-row: 3/5;
+ }

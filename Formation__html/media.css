@@ -1,0 +1,51 @@
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header nav ul{
+    display: flex;
+    list-style-type: none;
+    gap: 20px; /* Espace entre les elements */
+}
+.principal{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.principal img{
+    width: 100%;
+}
+.formulaire{
+    display: flex;
+    justify-content: space-around;
+}
+.formulaire form{
+    width: 40%;
+}
+.formulaire form input[type='text'], textarea{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    header{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .principal{
+        flex-wrap: wrap;
+    }
+    .formulaire{
+        flex-wrap: wrap;
+    }
+    .formulaire form{
+        width: 90%;
+    }
+}
+/* @media screen and (max-width: 480px) {
+    header{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+} */

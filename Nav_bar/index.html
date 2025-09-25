@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBar Respo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="./script.js" refer></script> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">NavBar</a>
+            </div>
+            <ul class="links">
+                <li><a href="">Accueil</a></li>
+                <li><a href="">Propos</a></li>
+                <li><a href="">Projets</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+            <div class="buttons">
+                <a href="#" class="action-button pro">Espace Pro</a>
+                <a href="#" class="action-button">Se Connecter</a>
+            </div>
+            <div class="button_menu">
+               <img class="image-open" src="./menu-svgrepo-com.svg" alt="">
+                <!-- <a href="#"><svg width="64px" height="64px" viewBox="-19.44 -19.44 62.88 62.88" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12ZM3 18C3 17.4477 3.44772 17 4 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18Z" fill="#000000"></path> </g></svg></a> -->
+            </div>
+        </div>
+        <div class="menu-respo">
+            <ul class="links">
+                <li><a href="">Accueil</a></li>
+                <li><a href="">Propos</a></li>
+                <li><a href="">Projets</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+            <div class="diviser"></div>
+            <div class="button-menu">
+                <a href="#" class="action-button pro">Espace Pro</a>
+                <a href="#" class="action-button">Se Connecter</a>
+            </div>
+        </div>
+        <script>
+            const bouton_click = document.querySelector('.button_menu')
+            const bouton = document.querySelector('.button_menu img')
+            const affichage = document.querySelector('.menu-respo')
+
+            bouton_click.onclick = function (){
+                affichage.classList.toggle('open')
+                const isOpen = affichage.classList.contains('open')
+                bouton.classList = isOpen ? '.bouton_menu img' : '🟰'
+            }
+        </script>
+    </header>
+</body>
+</html>

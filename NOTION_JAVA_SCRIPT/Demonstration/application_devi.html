@@ -1,0 +1,1442 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Devis Freelance Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .app-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .tab:hover {
+            color: #495057;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .tab.active {
+            color: #667eea;
+            background: white;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-info h4 {
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        .service-info p {
+            color: #6c757d;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .service-price {
+            font-weight: bold;
+            color: #28a745;
+            font-size: 16px;
+        }
+
+        .quote-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quote-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quote-controls input {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .score-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .suggestions {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .suggestions h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .suggestions ul {
+            color: #856404;
+            padding-left: 20px;
+        }
+
+        .quote-preview {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .quote-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .quote-header h2 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .quote-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .quote-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .quote-table th,
+        .quote-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .quote-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .quote-total {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .history-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-accepted {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-rejected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-details {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                max-width: none;
+                padding: 0;
+            }
+
+            .header,
+            .tabs,
+            .btn {
+                display: none;
+            }
+
+            .app-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .tab-content {
+                display: block !important;
+                padding: 0;
+            }
+
+            .quote-preview {
+                border: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💼 Générateur de Devis Pro</h1>
+            <p>Créez des devis professionnels en quelques clics</p>
+        </div>
+
+        <div class="app-container">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('profile')">👤 Profil</button>
+                <button class="tab" onclick="showTab('services')">🛠️ Services</button>
+                <button class="tab" onclick="showTab('quote')">📄 Nouveau Devis</button>
+                <button class="tab" onclick="showTab('history')">📊 Historique</button>
+                <button class="tab" onclick="showTab('settings')">⚙️ Paramètres</button>
+            </div>
+
+            <!-- Onglet Profil -->
+            <div id="profile" class="tab-content active">
+                <div class="score-container">
+                    <div class="score-circle" id="profileScore">85%</div>
+                    <h3>Score de Complétude</h3>
+                    <p>Complétez votre profil pour améliorer vos devis</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Informations Personnelles</h3>
+                        <div class="form-group">
+                            <label>Nom / Raison sociale</label>
+                            <input type="text" id="companyName" placeholder="Votre nom ou entreprise">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="contact@exemple.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Téléphone</label>
+                            <input type="tel" id="phone" placeholder="+33 1 23 45 67 89">
+                        </div>
+                        <div class="form-group">
+                            <label>Site web</label>
+                            <input type="url" id="website" placeholder="https://monsite.com">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Adresse</h3>
+                        <div class="form-group">
+                            <label>Adresse</label>
+                            <textarea id="address" rows="3" placeholder="123 Rue de la Paix&#10;75001 Paris"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>SIRET (optionnel)</label>
+                            <input type="text" id="siret" placeholder="12345678901234">
+                        </div>
+                        <div class="form-group">
+                            <label>TVA (optionnel)</label>
+                            <input type="text" id="vat" placeholder="FR12345678901">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Signature & Conditions</h3>
+                    <div class="form-group">
+                        <label>Conditions de paiement</label>
+                        <textarea id="paymentTerms" rows="2" placeholder="Paiement à 30 jours, acompte de 30% à la commande"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Mentions légales</label>
+                        <textarea id="legalMentions" rows="3" placeholder="Conditions générales, garanties, etc."></textarea>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="saveProfile()">💾 Sauvegarder le Profil</button>
+
+                <div id="profileSuggestions" class="suggestions">
+                    <h4>💡 Suggestions d'amélioration</h4>
+                    <ul id="profileSuggestionsList">
+                        <li>Ajoutez votre numéro SIRET pour plus de crédibilité</li>
+                        <li>Complétez vos conditions de paiement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Onglet Services -->
+            <div id="services" class="tab-content">
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Ajouter un Service</h3>
+                        <div class="form-group">
+                            <label>Nom du service</label>
+                            <input type="text" id="serviceName" placeholder="Développement site web">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="serviceDescription" rows="3" placeholder="Site web responsive avec CMS"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Prix unitaire (€)</label>
+                            <input type="number" id="servicePrice" placeholder="500" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label>Unité</label>
+                            <select id="serviceUnit">
+                                <option value="projet">Par projet</option>
+                                <option value="heure">Par heure</option>
+                                <option value="jour">Par jour</option>
+                                <option value="page">Par page</option>
+                                <option value="article">Par article</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" onclick="addService()">➕ Ajouter le Service</button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Templates Populaires</h3>
+                        <p>Ajoutez rapidement des services courants :</p>
+                        <button class="btn btn-secondary btn-small" onclick="addTemplate('web')">🌐 Développement Web</button>
+                        <button class="btn btn-secondary btn-small" onclick="addTemplate('design')">🎨 Design Graphique</button>
+                        <button class="btn btn-secondary btn-small" onclick="addTemplate('consulting')">💼 Consulting</button>
+                        <button class="btn btn-secondary btn-small" onclick="addTemplate('writing')">✍️ Rédaction</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Mes Services</h3>
+                    <div id="servicesList"></div>
+                </div>
+            </div>
+
+            <!-- Onglet Nouveau Devis -->
+            <div id="quote" class="tab-content">
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Informations Client</h3>
+                        <div class="form-group">
+                            <label>Nom du client</label>
+                            <input type="text" id="clientName" placeholder="Entreprise ABC">
+                        </div>
+                        <div class="form-group">
+                            <label>Email client</label>
+                            <input type="email" id="clientEmail" placeholder="client@entreprise.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Adresse client</label>
+                            <textarea id="clientAddress" rows="3" placeholder="Adresse du client"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Paramètres du Devis</h3>
+                        <div class="form-group">
+                            <label>Numéro de devis</label>
+                            <input type="text" id="quoteNumber" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Date de validité (jours)</label>
+                            <input type="number" id="validityDays" value="30" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Remise (%)</label>
+                            <input type="number" id="discount" value="0" min="0" max="100" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label>TVA (%)</label>
+                            <input type="number" id="taxRate" value="20" min="0" max="100" step="0.1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Services Sélectionnés</h3>
+                    <div id="selectedServices"></div>
+                    <button class="btn btn-primary" onclick="showServiceSelector()">➕ Ajouter des Services</button>
+                </div>
+
+                <div class="card">
+                    <h3>Résumé Financier</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="subtotalAmount">0€</div>
+                            <div class="stat-label">Sous-total</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="discountAmount">0€</div>
+                            <div class="stat-label">Remise</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="taxAmount">0€</div>
+                            <div class="stat-label">TVA</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalAmount">0€</div>
+                            <div class="stat-label">Total TTC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-2">
+                    <button class="btn btn-primary" onclick="generateQuote()">📄 Générer le Devis</button>
+                    <button class="btn btn-success" onclick="saveQuote()">💾 Sauvegarder</button>
+                </div>
+
+                <div id="quotePreview" class="quote-preview" style="display: none;"></div>
+            </div>
+
+            <!-- Onglet Historique -->
+            <div id="history" class="tab-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalQuotes">0</div>
+                        <div class="stat-label">Devis Créés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="acceptedQuotes">0</div>
+                        <div class="stat-label">Acceptés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalRevenue">0€</div>
+                        <div class="stat-label">CA Potentiel</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="conversionRate">0%</div>
+                        <div class="stat-label">Taux de Conversion</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Historique des Devis</h3>
+                    <div id="quoteHistory"></div>
+                </div>
+            </div>
+
+            <!-- Onglet Paramètres -->
+            <div id="settings" class="tab-content">
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Préférences</h3>
+                        <div class="form-group">
+                            <label>Devise par défaut</label>
+                            <select id="defaultCurrency">
+                                <option value="EUR">Euro (€)</option>
+                                <option value="USD">Dollar ($)</option>
+                                <option value="GBP">Livre (£)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>TVA par défaut (%)</label>
+                            <input type="number" id="defaultTax" value="20" min="0" max="100" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label>Validité par défaut (jours)</label>
+                            <input type="number" id="defaultValidity" value="30" min="1">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Données</h3>
+                        <p>Gérez vos données stockées localement</p>
+                        <button class="btn btn-secondary" onclick="exportData()">📤 Exporter les Données</button>
+                        <button class="btn btn-secondary" onclick="importData()">📥 Importer les Données</button>
+                        <button class="btn btn-danger" onclick="clearAllData()">🗑️ Effacer Toutes les Données</button>
+                        <input type="file" id="importFile" style="display: none;" accept=".json">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>À Propos</h3>
+                    <p><strong>Générateur de Devis Pro v1.0</strong></p>
+                    <p>Application web pour freelances et petites entreprises</p>
+                    <p>💡 <strong>Fonctionnalités Premium à venir :</strong></p>
+                    <ul>
+                        <li>Synchronisation cloud</li>
+                        <li>Templates personnalisés</li>
+                        <li>Relances automatiques</li>
+                        <li>Intégration comptabilité</li>
+                        <li>Analytics avancés</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour sélection de services -->
+    <div id="serviceModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 15px; max-width: 500px; width: 90%;">
+            <h3>Sélectionner des Services</h3>
+            <div id="serviceModalList"></div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="btn btn-secondary" onclick="closeServiceModal()">Annuler</button>
+                <button class="btn btn-primary" onclick="addSelectedServices()">Ajouter</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let currentQuote = {
+            services: [],
+            client: {},
+            settings: {}
+        };
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProfile();
+            loadServices();
+            loadQuoteHistory();
+            generateQuoteNumber();
+            updateProfileScore();
+            displayServices();
+            updateQuoteCalculations();
+            updateHistoryStats();
+        });
+
+        // Gestion des onglets
+        function showTab(tabName) {
+            // Masquer tous les contenus
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Désactiver tous les onglets
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activer l'onglet et le contenu sélectionnés
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Gestion du profil
+        function saveProfile() {
+            const profile = {
+                companyName: document.getElementById('companyName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                website: document.getElementById('website').value,
+                address: document.getElementById('address').value,
+                siret: document.getElementById('siret').value,
+                vat: document.getElementById('vat').value,
+                paymentTerms: document.getElementById('paymentTerms').value,
+                legalMentions: document.getElementById('legalMentions').value
+            };
+            
+            localStorage.setItem('freelanceProfile', JSON.stringify(profile));
+            updateProfileScore();
+            alert('✅ Profil sauvegardé avec succès !');
+        }
+
+        function loadProfile() {
+            const profile = JSON.parse(localStorage.getItem('freelanceProfile') || '{}');
+            
+            Object.keys(profile).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.value = profile[key] || '';
+                }
+            });
+        }
+
+        function updateProfileScore() {
+            const profile = JSON.parse(localStorage.getItem('freelanceProfile') || '{}');
+            const requiredFields = ['companyName', 'email', 'phone', 'address'];
+            const optionalFields = ['website', 'siret', 'vat', 'paymentTerms', 'legalMentions'];
+            
+            let score = 0;
+            let suggestions = [];
+            
+            // Champs obligatoires (60% du score)
+            requiredFields.forEach(field => {
+                if (profile[field] && profile[field].trim()) {
+                    score += 15;
+                } else {
+                    suggestions.push(`Ajoutez votre ${getFieldLabel(field)}`);
+                }
+            });
+            
+            // Champs optionnels (40% du score)
+            optionalFields.forEach(field => {
+                if (profile[field] && profile[field].trim()) {
+                    score += 8;
+                }
+            });
+            
+            // Suggestions spécifiques
+            if (!profile.siret) suggestions.push('Ajoutez votre SIRET pour plus de crédibilité');
+            if (!profile.paymentTerms) suggestions.push('Définissez vos conditions de paiement');
+            if (!profile.website) suggestions.push('Ajoutez votre site web');
+            
+            document.getElementById('profileScore').textContent = Math.min(100, score) + '%';
+            
+            const suggestionsList = document.getElementById('profileSuggestionsList');
+            suggestionsList.innerHTML = suggestions.slice(0, 3).map(s => `<li>${s}</li>`).join('');
+        }
+
+        function getFieldLabel(field) {
+            const labels = {
+                companyName: 'nom/raison sociale',
+                email: 'email',
+                phone: 'téléphone',
+                address: 'adresse',
+                website: 'site web',
+                siret: 'SIRET',
+                vat: 'numéro de TVA',
+                paymentTerms: 'conditions de paiement',
+                legalMentions: 'mentions légales'
+            };
+            return labels[field] || field;
+        }
+
+        // Gestion des services
+        function addService() {
+            const name = document.getElementById('serviceName').value;
+            const description = document.getElementById('serviceDescription').value;
+            const price = parseFloat(document.getElementById('servicePrice').value);
+            const unit = document.getElementById('serviceUnit').value;
+            
+            if (!name || !price) {
+                alert('⚠️ Veuillez remplir au moins le nom et le prix du service');
+                return;
+            }
+            
+            const services = JSON.parse(localStorage.getItem('services') || '[]');
+            const service = {
+                id: Date.now(),
+                name,
+                description,
+                price,
+                unit,
+                createdAt: new Date().toISOString()
+            };
+            
+            services.push(service);
+            localStorage.setItem('services', JSON.stringify(services));
+            
+            // Réinitialiser le formulaire
+            document.getElementById('serviceName').value = '';
+            document.getElementById('serviceDescription').value = '';
+            document.getElementById('servicePrice').value = '';
+            document.getElementById('serviceUnit').value = 'projet';
+            
+            displayServices();
+            alert('✅ Service ajouté avec succès !');
+        }
+
+        function addTemplate(type) {
+            const templates = {
+                web: [
+                    { name: 'Site vitrine', description: 'Site web responsive 5 pages', price: 1500, unit: 'projet' },
+                    { name: 'E-commerce', description: 'Boutique en ligne complète', price: 3000, unit: 'projet' },
+                    { name: 'Développement', description: 'Développement sur mesure', price: 60, unit: 'heure' }
+                ],
+                design: [
+                    { name: 'Logo', description: 'Création de logo professionnel', price: 300, unit: 'projet' },
+                    { name: 'Charte graphique', description: 'Identité visuelle complète', price: 800, unit: 'projet' },
+                    { name: 'Design web', description: 'Maquette de site web', price: 50, unit: 'heure' }
+                ],
+                consulting: [
+                    { name: 'Audit', description: 'Audit technique ou marketing', price: 500, unit: 'projet' },
+                    { name: 'Conseil', description: 'Conseil stratégique', price: 80, unit: 'heure' },
+                    { name: 'Formation', description: 'Formation personnalisée', price: 400, unit: 'jour' }
+                ],
+                writing: [
+                    { name: 'Article de blog', description: 'Rédaction d\'article optimisé SEO', price: 50, unit: 'article' },
+                    { name: 'Page web', description: 'Rédaction de page de site', price: 100, unit: 'page' },
+                    { name: 'Rédaction', description: 'Rédaction sur mesure', price: 40, unit: 'heure' }
+                ]
+            };
+            
+            const services = JSON.parse(localStorage.getItem('services') || '[]');
+            templates[type].forEach(template => {
+                services.push({
+                    id: Date.now() + Math.random(),
+                    ...template,
+                    createdAt: new Date().toISOString()
+                });
+            });
+            
+            localStorage.setItem('services', JSON.stringify(services));
+            displayServices();
+            alert(`✅ ${templates[type].length} services ajoutés !`);
+        }
+
+        function loadServices() {
+            displayServices();
+        }
+
+        function displayServices() {
+            const services = JSON.parse(localStorage.getItem('services') || '[]');
+            const container = document.getElementById('servicesList');
+            
+            if (services.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #6c757d;">Aucun service configuré. Ajoutez votre premier service ci-dessus.</p>';
+                return;
+            }
+            
+            container.innerHTML = services.map(service => `
+                <div class="service-item">
+                    <div class="service-info">
+                        <h4>${service.name}</h4>
+                        <p>${service.description}</p>
+                        <span class="service-price">${service.price}€ / ${service.unit}</span>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger btn-small" onclick="deleteService(${service.id})">🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteService(id) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce service ?')) {
+                const services = JSON.parse(localStorage.getItem('services') || '[]');
+                const filteredServices = services.filter(service => service.id !== id);
+                localStorage.setItem('services', JSON.stringify(filteredServices));
+                displayServices();
+            }
+        }
+
+        // Gestion des devis
+        function generateQuoteNumber() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const time = String(date.getHours()).padStart(2, '0') + String(date.getMinutes()).padStart(2, '0');
+            
+            document.getElementById('quoteNumber').value = `DEV-${year}${month}${day}-${time}`;
+        }
+
+        function showServiceSelector() {
+            const services = JSON.parse(localStorage.getItem('services') || '[]');
+            
+            if (services.length === 0) {
+                alert('⚠️ Aucun service configuré. Ajoutez des services dans l\'onglet Services.');
+                return;
+            }
+            
+            const modal = document.getElementById('serviceModal');
+            const list = document.getElementById('serviceModalList');
+            
+            list.innerHTML = services.map(service => `
+                <div style="margin-bottom: 10px;">
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="checkbox" value="${service.id}" style="margin-right: 10px;">
+                        <div>
+                            <strong>${service.name}</strong> - ${service.price}€ / ${service.unit}
+                            <br><small style="color: #6c757d;">${service.description}</small>
+                        </div>
+                    </label>
+                </div>
+            `).join('');
+            
+            modal.style.display = 'block';
+        }
+
+        function closeServiceModal() {
+            document.getElementById('serviceModal').style.display = 'none';
+        }
+
+        function addSelectedServices() {
+            const checkboxes = document.querySelectorAll('#serviceModalList input[type="checkbox"]:checked');
+            const services = JSON.parse(localStorage.getItem('services') || '[]');
+            
+            checkboxes.forEach(checkbox => {
+                const serviceId = parseInt(checkbox.value);
+                const service = services.find(s => s.id === serviceId);
+                
+                if (service && !currentQuote.services.find(s => s.id === serviceId)) {
+                    currentQuote.services.push({
+                        ...service,
+                        quantity: 1
+                    });
+                }
+            });
+            
+            displaySelectedServices();
+            updateQuoteCalculations();
+            closeServiceModal();
+        }
+
+        function displaySelectedServices() {
+            const container = document.getElementById('selectedServices');
+            
+            if (currentQuote.services.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #6c757d;">Aucun service sélectionné</p>';
+                return;
+            }
+            
+            container.innerHTML = currentQuote.services.map((service, index) => `
+                <div class="quote-item">
+                    <div>
+                        <strong>${service.name}</strong><br>
+                        <small>${service.description}</small><br>
+                        <span style="color: #28a745;">${service.price}€ / ${service.unit}</span>
+                    </div>
+                    <div class="quote-controls">
+                        <input type="number" value="${service.quantity}" min="1" step="0.1" 
+                               onchange="updateServiceQuantity(${index}, this.value)">
+                        <button class="btn btn-danger btn-small" onclick="removeService(${index})">🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateServiceQuantity(index, quantity) {
+            currentQuote.services[index].quantity = parseFloat(quantity) || 1;
+            updateQuoteCalculations();
+        }
+
+        function removeService(index) {
+            currentQuote.services.splice(index, 1);
+            displaySelectedServices();
+            updateQuoteCalculations();
+        }
+
+        function updateQuoteCalculations() {
+            const subtotal = currentQuote.services.reduce((sum, service) => 
+                sum + (service.price * service.quantity), 0);
+            
+            const discountRate = parseFloat(document.getElementById('discount').value) || 0;
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            
+            const discountAmount = subtotal * (discountRate / 100);
+            const subtotalAfterDiscount = subtotal - discountAmount;
+            const taxAmount = subtotalAfterDiscount * (taxRate / 100);
+            const total = subtotalAfterDiscount + taxAmount;
+            
+            document.getElementById('subtotalAmount').textContent = subtotal.toFixed(2) + '€';
+            document.getElementById('discountAmount').textContent = discountAmount.toFixed(2) + '€';
+            document.getElementById('taxAmount').textContent = taxAmount.toFixed(2) + '€';
+            document.getElementById('totalAmount').textContent = total.toFixed(2) + '€';
+        }
+
+        // Écouter les changements sur les champs de remise et TVA
+        document.getElementById('discount').addEventListener('input', updateQuoteCalculations);
+        document.getElementById('taxRate').addEventListener('input', updateQuoteCalculations);
+
+        function generateQuote() {
+            if (currentQuote.services.length === 0) {
+                alert('⚠️ Veuillez ajouter au moins un service au devis');
+                return;
+            }
+            
+            const clientName = document.getElementById('clientName').value;
+            if (!clientName) {
+                alert('⚠️ Veuillez renseigner le nom du client');
+                return;
+            }
+            
+            const profile = JSON.parse(localStorage.getItem('freelanceProfile') || '{}');
+            const quoteNumber = document.getElementById('quoteNumber').value;
+            const validityDays = parseInt(document.getElementById('validityDays').value);
+            const validUntil = new Date();
+            validUntil.setDate(validUntil.getDate() + validityDays);
+            
+            const subtotal = currentQuote.services.reduce((sum, service) => 
+                sum + (service.price * service.quantity), 0);
+            const discountRate = parseFloat(document.getElementById('discount').value) || 0;
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            const discountAmount = subtotal * (discountRate / 100);
+            const subtotalAfterDiscount = subtotal - discountAmount;
+            const taxAmount = subtotalAfterDiscount * (taxRate / 100);
+            const total = subtotalAfterDiscount + taxAmount;
+            
+            const quoteHTML = `
+                <div class="quote-header">
+                    <h2>DEVIS</h2>
+                    <p>N° ${quoteNumber}</p>
+                    <p>Date: ${new Date().toLocaleDateString('fr-FR')}</p>
+                    <p>Valable jusqu'au: ${validUntil.toLocaleDateString('fr-FR')}</p>
+                </div>
+                
+                <div class="quote-details">
+                    <div>
+                        <h4>De:</h4>
+                        <p><strong>${profile.companyName || 'Nom non renseigné'}</strong></p>
+                        <p>${profile.address || 'Adresse non renseignée'}</p>
+                        <p>Email: ${profile.email || 'Non renseigné'}</p>
+                        <p>Tél: ${profile.phone || 'Non renseigné'}</p>
+                        ${profile.siret ? `<p>SIRET: ${profile.siret}</p>` : ''}
+                        ${profile.vat ? `<p>TVA: ${profile.vat}</p>` : ''}
+                    </div>
+                    <div>
+                        <h4>À:</h4>
+                        <p><strong>${document.getElementById('clientName').value}</strong></p>
+                        <p>${document.getElementById('clientEmail').value}</p>
+                        <p>${document.getElementById('clientAddress').value}</p>
+                    </div>
+                </div>
+                
+                <table class="quote-table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Quantité</th>
+                            <th>Prix unitaire</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${currentQuote.services.map(service => `
+                            <tr>
+                                <td>
+                                    <strong>${service.name}</strong><br>
+                                    <small>${service.description}</small>
+                                </td>
+                                <td>${service.quantity} ${service.unit}${service.quantity > 1 ? 's' : ''}</td>
+                                <td>${service.price.toFixed(2)}€</td>
+                                <td>${(service.price * service.quantity).toFixed(2)}€</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+                
+                <div class="quote-total">
+                    <p>Sous-total: ${subtotal.toFixed(2)}€</p>
+                    ${discountRate > 0 ? `<p>Remise (${discountRate}%): -${discountAmount.toFixed(2)}€</p>` : ''}
+                    <p>Total HT: ${subtotalAfterDiscount.toFixed(2)}€</p>
+                    ${taxRate > 0 ? `<p>TVA (${taxRate}%): ${taxAmount.toFixed(2)}€</p>` : ''}
+                    <p style="font-size: 24px; color: #28a745;"><strong>Total TTC: ${total.toFixed(2)}€</strong></p>
+                </div>
+                
+                ${profile.paymentTerms ? `
+                    <div style="margin-top: 30px;">
+                        <h4>Conditions de paiement:</h4>
+                        <p>${profile.paymentTerms}</p>
+                    </div>
+                ` : ''}
+                
+                ${profile.legalMentions ? `
+                    <div style="margin-top: 20px;">
+                        <h4>Mentions légales:</h4>
+                        <p style="font-size: 12px;">${profile.legalMentions}</p>
+                    </div>
+                ` : ''}
+                
+                <div style="margin-top: 30px; text-align: center;">
+                    <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimer / Sauvegarder PDF</button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('quotePreview').style.display='none'">Fermer</button>
+                </div>
+            `;
+            
+            document.getElementById('quotePreview').innerHTML = quoteHTML;
+            document.getElementById('quotePreview').style.display = 'block';
+        }
+
+        function saveQuote() {
+            if (currentQuote.services.length === 0) {
+                alert('⚠️ Veuillez ajouter au moins un service au devis');
+                return;
+            }
+            
+            const clientName = document.getElementById('clientName').value;
+            if (!clientName) {
+                alert('⚠️ Veuillez renseigner le nom du client');
+                return;
+            }
+            
+            const quotes = JSON.parse(localStorage.getItem('quotes') || '[]');
+            const subtotal = currentQuote.services.reduce((sum, service) => 
+                sum + (service.price * service.quantity), 0);
+            const discountRate = parseFloat(document.getElementById('discount').value) || 0;
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            const discountAmount = subtotal * (discountRate / 100);
+            const subtotalAfterDiscount = subtotal - discountAmount;
+            const taxAmount = subtotalAfterDiscount * (taxRate / 100);
+            const total = subtotalAfterDiscount + taxAmount;
+            
+            const quote = {
+                id: Date.now(),
+                number: document.getElementById('quoteNumber').value,
+                client: {
+                    name: clientName,
+                    email: document.getElementById('clientEmail').value,
+                    address: document.getElementById('clientAddress').value
+                },
+                services: [...currentQuote.services],
+                amounts: {
+                    subtotal,
+                    discount: discountAmount,
+                    tax: taxAmount,
+                    total
+                },
+                settings: {
+                    discountRate,
+                    taxRate,
+                    validityDays: parseInt(document.getElementById('validityDays').value)
+                },
+                status: 'pending',
+                createdAt: new Date().toISOString()
+            };
+            
+            quotes.push(quote);
+            localStorage.setItem('quotes', JSON.stringify(quotes));
+            
+            // Réinitialiser le formulaire
+            currentQuote.services = [];
+            document.getElementById('clientName').value = '';
+            document.getElementById('clientEmail').value = '';
+            document.getElementById('clientAddress').value = '';
+            document.getElementById('discount').value = '0';
+            generateQuoteNumber();
+            displaySelectedServices();
+            updateQuoteCalculations();
+            updateHistoryStats();
+            
+            alert('✅ Devis sauvegardé avec succès !');
+        }
+
+        // Gestion de l'historique
+        function loadQuoteHistory() {
+            displayQuoteHistory();
+            updateHistoryStats();
+        }
+
+        function displayQuoteHistory() {
+            const quotes = JSON.parse(localStorage.getItem('quotes') || '[]');
+            const container = document.getElementById('quoteHistory');
+            
+            if (quotes.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #6c757d;">Aucun devis créé pour le moment</p>';
+                return;
+            }
+            
+            container.innerHTML = quotes.reverse().map(quote => `
+                <div class="history-item">
+                    <div>
+                        <strong>${quote.number}</strong> - ${quote.client.name}<br>
+                        <small>${new Date(quote.createdAt).toLocaleDateString('fr-FR')}</small><br>
+                        <strong style="color: #28a745;">${quote.amounts.total.toFixed(2)}€</strong>
+                    </div>
+                    <div>
+                        <span class="status-badge status-${quote.status}">
+                            ${getStatusLabel(quote.status)}
+                        </span>
+                        <button class="btn btn-secondary btn-small" onclick="changeQuoteStatus(${quote.id})">
+                            📝 Statut
+                        </button>
+                        <button class="btn btn-danger btn-small" onclick="deleteQuote(${quote.id})">
+                            🗑️
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getStatusLabel(status) {
+            const labels = {
+                pending: 'En attente',
+                accepted: 'Accepté',
+                rejected: 'Refusé'
+            };
+            return labels[status] || status;
+        }
+
+        function changeQuoteStatus(id) {
+            const quotes = JSON.parse(localStorage.getItem('quotes') || '[]');
+            const quote = quotes.find(q => q.id === id);
+            
+            if (!quote) return;
+            
+            const newStatus = prompt('Nouveau statut (pending/accepted/rejected):', quote.status);
+            if (newStatus && ['pending', 'accepted', 'rejected'].includes(newStatus)) {
+                quote.status = newStatus;
+                localStorage.setItem('quotes', JSON.stringify(quotes));
+                displayQuoteHistory();
+                updateHistoryStats();
+            }
+        }
+
+        function deleteQuote(id) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce devis ?')) {
+                const quotes = JSON.parse(localStorage.getItem('quotes') || '[]');
+                const filteredQuotes = quotes.filter(quote => quote.id !== id);
+                localStorage.setItem('quotes', JSON.stringify(filteredQuotes));
+                displayQuoteHistory();
+                updateHistoryStats();
+            }
+        }
+
+        function updateHistoryStats() {
+            const quotes = JSON.parse(localStorage.getItem('quotes') || '[]');
+            
+            const totalQuotes = quotes.length;
+            const acceptedQuotes = quotes.filter(q => q.status === 'accepted').length;
+            const totalRevenue = quotes.filter(q => q.status === 'accepted')
+                .reduce((sum, q) => sum + q.amounts.total, 0);
+            const conversionRate = totalQuotes > 0 ? (acceptedQuotes / totalQuotes * 100) : 0;
+            
+            document.getElementById('totalQuotes').textContent = totalQuotes;
+            document.getElementById('acceptedQuotes').textContent = acceptedQuotes;
+            document.getElementById('totalRevenue').textContent = totalRevenue.toFixed(2) + '€';
+            document.getElementById('conversionRate').textContent = conversionRate.toFixed(1) + '%';
+        }
+
+        // Gestion des paramètres
+        function exportData() {
+            const data = {
+                profile: JSON.parse(localStorage.getItem('freelanceProfile') || '{}'),
+                services: JSON.parse(localStorage.getItem('services') || '[]'),
+                quotes: JSON.parse(localStorage.getItem('quotes') || '[]'),
+                exportDate: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `devis-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importData() {
+            document.getElementById('importFile').click();
+        }
+
+        document.getElementById('importFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    if (confirm('⚠️ Cette action remplacera toutes vos données actuelles. Continuer ?')) {
+                        if (data.profile) localStorage.setItem('freelanceProfile', JSON.stringify(data.profile));
+                        if (data.services) localStorage.setItem('services', JSON.stringify(data.services));
+                        if (data.quotes) localStorage.setItem('quotes', JSON.stringify(data.quotes));
+                        
+                        // Recharger l'interface
+                        loadProfile();
+                        displayServices();
+                        displayQuoteHistory();
+                        updateHistoryStats();
+                        updateProfileScore();
+                        
+                        alert('✅ Données importées avec succès !');
+                    }
+                } catch (error) {
+                    alert('❌ Erreur lors de l\'importation du fichier');
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        function clearAllData() {
+            if (confirm('⚠️ Êtes-vous sûr de vouloir effacer toutes les données ? Cette action est irréversible.')) {
+                if (confirm('🚨 DERNIÈRE CONFIRMATION: Toutes vos données seront perdues !')) {
+                    localStorage.clear();
+                    location.reload();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

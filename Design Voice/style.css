@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+body{
+    background-image: -webkit-radial-gradient(circle, #1d515f, rgb(0, 10, 19));
+    background-image: -moz-radial-gradient(circle, #1d515f, rgb(0, 10, 19));
+    background-image: -o-radial-gradient(circle, #1d515f, rgb(0, 10, 19));
+    font-family: 'Quicksand', sans-serif;
+}
+header .nav_one{
+    margin-top: -5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #48abc7;
+}
+.nav_one a{
+    text-decoration: none;
+    color: #48abc7;
+    margin-right: 10px;
+}
+header .nav_two{
+    display: flex;
+    justify-content: space-between;
+}
+.left, .right{
+    display: flex;
+}
+.left nav ul li{
+    list-style-type: none;
+    display: inline-block;
+}
+.left nav ul li a, .right a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 15px;
+}
+.left h1{
+    margin-top: -18px;
+    padding: 20px;
+    color: aliceblue;
+}
+.right a{
+    padding: 10px;
+}
+.right .started{
+    border: 1px solid rgb(112, 42, 177);
+    color: aliceblue; 
+    border-radius: 3px;
+    padding: 5px;
+    background-color: rgb(112, 42, 177);
+}
+
+/* Section partie 1 */
+.voice_description{
+    justify-content: center;
+    text-align: center;
+}
+.voice_description h1{
+    font-size: 50px;
+    color: aliceblue;
+    font-weight: bold;
+    word-spacing: 10px;
+}
+.voice_description .description{
+    color: aliceblue;
+    opacity: .5;
+}
+.voice_description .link_section{
+    display: inline-flex;
+}
+.voice_description .get_started{
+    background-color: rgb(99, 23, 170);
+}
+.voice_description .request_demo, .get_started{
+    color: aliceblue;
+    font-weight: bold;
+    border: 1px solid rgb(99, 23, 170);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 20px;
+    text-decoration: none;
+}
+.voice_description h3, h2{
+    color: rgb(215, 156, 218);
+    opacity: .6;
+    text-transform: uppercase;
+}
+.voice_description h2{
+    text-transform: capitalize;
+}
+.about{
+    padding: 30px;
+    height: 40vh;
+    border: 1.5px solid #1444aa;
+    display: flex;
+}
+.about h3{
+    text-transform: capitalize;
+    color: aliceblue;
+}
+.about p{
+    color: aliceblue;
+    opacity: .7;
+}
+.about .two{
+    background-color: #1444aa;
+}
+.one, .two, .three{
+    padding: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 450px;
+}
+@media screen and (max-width: 600px) {
+    body, html{
+        overflow-x: hidden;
+        max-width: 100%;
+    }    
+    header .nav_one{
+        flex-wrap: wrap;
+    }
+    header .objet, .left nav{
+        display: none;
+    }
+    .left h1{
+        position: absolute;
+        top: 17px;
+        right: 0;
+    }
+    .voice_description h1,
+    .voice_description h3,
+    .voice_description h2{
+        font-size: 1.3rem;
+        letter-spacing: 0;
+    }
+    .about{
+        flex-wrap: wrap;
+        height: auto;
+    }
+}

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&display=swap');
+body {
+  font-family: 'Lobster Two', sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.container:hover { transform: translateY(-3px); }
+
+h1, h2 { text-align: center; color: #333; }
+
+input, textarea, button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.hidden { display: none; }
+
+span { color: #007BFF; cursor: pointer; transition: color 0.3s ease; }
+span:hover { color: #0056b3; }
+
+/* --- Progress Bar --- */
+.progress-bar {
+  width: 100%;
+  background: #eee;
+  border-radius: 10px;
+  height: 22px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress {
+  background: linear-gradient(90deg, #28a745, #85e085);
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* --- Listes --- */
+ul { list-style-type: none; padding: 0; max-height: 200px; overflow-y: auto; }
+li { padding: 8px; border-bottom: 1px solid #ddd; transition: background 0.3s ease; }
+li:hover { background: #f9f9f9; }
+
+/* --- Collecte item --- */
+.collecte-item {
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.collecte-item:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
+/* --- Boutons spécifiques --- */
+.btn-view { background: #007BFF; color: #fff; margin-right: 5px; border: none; padding: 8px 12px; border-radius: 6px; }
+.btn-view:hover { background: #0056b3; }
+
+.btn-edit { background: #FFC107; color: #fff; margin-right: 5px; border: none; padding: 8px 12px; border-radius: 6px; }
+.btn-edit:hover { background: #e0a800; }
+
+.btn-delete { background: #DC3545; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; }
+.btn-delete:hover { background: #c82333; }
+
+.btn-share { background: #17A2B8; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; margin-left: 5px; }
+.btn-share:hover { background: #117a8b; }
+
+/* --- Responsive --- */
+@media (max-width: 650px) {
+  .container { margin: 20px; padding: 20px; }
+  button { font-size: 14px; padding: 10px; }
+  input, textarea { font-size: 14px; padding: 10px; }
+}

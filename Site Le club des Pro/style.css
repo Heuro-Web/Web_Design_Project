@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+body, *{
+    font-family: 'Quicksand', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header{
+    text-align: center;
+    position: fixed; /* la position fixe va mettre l'element a inline c'est pourquoi on doit mettre encore le width */
+    /* background-color: #0062ff; */
+    width: 100%;
+    padding: 10px; /* Marge interieur */
+    z-index: 5; /* Pour que le header soit au dessus de tout */
+}
+header h1{
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    background-color: #0062ff;
+    color: aliceblue;
+    border: 5px solid #0062ff;
+    /* display: inline; nous changeons son type */
+    padding: 5px 15px;
+    /* border-radius: 30px; */
+}
+.accueil{
+    position: relative; /* mettre l'acceuol em position relative par rapport a sa place */
+    /* background-color: rgb(207, 225, 233); */
+    color: rgb(119, 27, 206);
+    width: 1200px;
+    max-width: 100%;
+    margin: 10px auto;
+    height: 550px;
+}
+.accueil img{
+    top: 20%;
+    position: absolute;
+    width: 370px;
+    left: 65%;
+    border-radius: 50%;
+    background-color: darkgray;
+    border-top-right-radius: 0;
+
+}
+.accueil h2{
+    font-size: 2.1rem;
+    position: absolute; /* mettre l'element a la position aabsolue par rapport a son element parent */
+    left: 5%;
+    top: 25%;
+    color: #333;
+}
+.accueil span{
+    color: #ff00ff;
+}
+nav{
+    position: sticky; /* il va s'arreter sur le selecteur mis en position fixe */
+    margin: 25px auto;
+    z-index: 5;
+    background-color: darkgray;
+    top: 82px;
+}
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    list-style-type: none;
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 2rem;
+    color: #222;
+    text-transform: capitalize;
+}
+main.main_content{
+    width: 100%;
+    margin: 75px auto;
+    max-width: 1000px;
+}
+section h2{
+    color: #0062ff;
+    margin: 3rem auto 1rem auto;
+}
+section p{
+    font-size: 1.2rem;
+}
+.images{
+    display: flex;
+    justify-content: center;
+}
+.images li{
+    margin-right: 10px;
+    list-style-type: none;
+}
+.image img{
+    width: 100%;
+    border: 2px solid #969090;
+    border-radius: 1rem;    
+}
+.service_title{
+    display: flex;
+}
+.services .service_list{
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    display: flex;
+}
+.service_title{
+    display: flex;
+}
+.service_title img{
+    margin-right: 14px;
+    width: 30px;
+    border-radius: 10px;
+    border: 1px solid darkcyan;
+}
+.service_title h3{
+    font-size: 1.5rem;
+    color: #444;
+}
+.form form{
+    height: 65%;
+    position: absolute;
+    padding: 15px;
+    top: 15%;
+    left: 30%;
+    border-radius: 15px;
+    background-color: #d813ce;
+    width: 50%;
+    border: 2px solid #ddd;
+}
+.form{
+    position: relative;
+}
+.form img{
+    width: 700px;
+}
+form input[type='text'], form input[type='email'], form textarea{
+    padding: 7px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
+    margin: 9px 0;
+}
+form input[type='submit']{
+    font-size: 1.3rem;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+    padding: 7px;
+    border: none;
+    background-color: #ff00ff;
+    border-radius: 4px;
+}
+.whatsapp{
+    display: flex;
+}
+.whatsapp .logo{
+    margin-right: 7px;
+    width: 30px;
+}
+.whatsapp .phone{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+footer{
+    background-color: #0062ff;
+    width: 100%;
+    color: aliceblue;
+    
+}
+footer p{
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.8rem;
+}
+footer p a{
+    cursor: pointer;
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+}

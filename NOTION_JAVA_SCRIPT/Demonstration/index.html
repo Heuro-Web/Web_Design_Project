@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Développeur Web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      padding: 20px;
+    }
+    h1 { color: #333; }
+    .question {
+      margin-bottom: 15px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #score {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz Développeur Web</h1>
+  <div id="quiz"></div>
+  <button onclick="verifier()">Vérifier mes réponses</button>
+  <p id="score"></p>
+
+  <script>
+    // --- Questions du quiz ---
+    const questions = [
+      {
+        q: "Quel langage est exécuté côté navigateur ?",
+        choix: ["PHP", "JavaScript", "Python", "C++"],
+        correct: "JavaScript"
+      },
+      {
+        q: "Quel attribut HTML permet d'afficher une image ?",
+        choix: ["src", "href", "alt", "link"],
+        correct: "src"
+      },
+      {
+        q: "Quelle propriété CSS change la couleur du texte ?",
+        choix: ["background-color", "font-size", "color", "text-align"],
+        correct: "color"
+      },
+      {
+        q: "Quel mot-clé crée une variable en JavaScript ?",
+        choix: ["var", "let", "const", "Tous les trois"],
+        correct: "Tous les trois"
+      },
+      {
+        q: "Quelle balise HTML définit un titre principal ?",
+        choix: ["<p>", "<h1>", "<title>", "<header>"],
+        correct: "<h1>"
+      }
+    ];
+
+    // --- Génération du quiz ---
+    let quizDiv = document.getElementById("quiz");
+    questions.forEach((item, i) => {
+      let bloc = document.createElement("div");
+      bloc.className = "question";
+
+      let q = document.createElement("p");
+      q.innerText = (i+1) + ". " + item.q;
+      bloc.appendChild(q);
+
+      item.choix.forEach(reponse => {
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        input.type = "radio";
+        input.name = "q" + i;
+        input.value = reponse;
+        label.appendChild(input);
+        label.append(" " + reponse);
+        bloc.appendChild(label);
+        bloc.appendChild(document.createElement("br"));
+      });
+
+      quizDiv.appendChild(bloc);
+    });
+
+    // --- Vérification du score ---
+    function verifier() {
+      let score = 0;
+      questions.forEach((item, i) => {
+        let reponses = document.getElementsByName("q" + i);
+        reponses.forEach(r => {
+          if (r.checked && r.value === item.correct) {
+            score++;
+          }
+        });
+      });
+
+      document.getElementById("score").innerText =
+        "Ton score est : " + score + "/" + questions.length;
+    }
+  </script>
+</body>
+</html>

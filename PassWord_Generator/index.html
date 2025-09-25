@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PassWord Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate a <br> <span> Random PassWord</span></h1>
+        <div class="display">
+            <input type="text" name="" id="password" placeholder="Password">
+            <button onclick="Copie()">Copy</button>
+        </div>
+        <button id="generate" onclick="Generate()">Generate</button>
+    </div>
+
+    <script>
+
+        const passwordBox =  document.getElementById('password')
+        const long = 12
+        const uPPletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        const lowerLetters = "abcdefghijklmnopqrstuvwxyz"
+        const numbers = "0123456789"
+        const symbols = "!@#$%^&*()_+-={}<>?"
+
+        const combinaison = uPPletters + lowerLetters + symbols + numbers
+
+        function Generate(){
+            let password = ""
+            password += uPPletters[Math.floor(Math.random() * uPPletters.length)]
+            password += lowerLetters[Math.floor(Math.random() * lowerLetters.length)]
+            password += numbers[Math.floor(Math.random() * numbers.length)]
+            password += symbols[Math.floor(Math.random() * symbols.length)]
+
+
+            while(password.length < long){
+                password += combinaison[Math.floor(Math.random() * combinaison.length)]
+            }
+
+            passwordBox.value = password
+        }
+
+
+
+        function Copie(){
+            passwordBox.select()
+            document.execCommand('copy')
+        }
+
+    </script>
+</body>
+</html>

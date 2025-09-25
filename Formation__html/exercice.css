@@ -1,0 +1,34 @@
+.container{
+    /* display: inline-block; */
+    outline: medium blue groove;
+    /* overflow: scroll; */
+    overflow-y: hidden;
+    overflow-x: scroll;
+    height: 400px;
+}
+
+.vide{
+    background-color: orange;
+    border: 1px dashed blueviolet;
+}
+span::after{
+    content: "";
+    animation: so infinite linear 1s;
+}
+@keyframes so{
+    0%{
+        content: "S";
+    }
+    25%{
+        content: "So";
+    }
+    50%{
+        content: "Son";
+    }
+    75%{
+        content: "Song";
+    }
+    100%{
+        content: "Songs...";
+    }
+}

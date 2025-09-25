@@ -1,0 +1,44 @@
+.parent{
+    height: 100vh;
+    flex-wrap: wrap;
+    display: flex; /* aligner les blocs */
+    /* justify-content: flex-end; aligner les blocs a la fin sur x */
+    /* justify-content: flex-start; aligner au debut par defaut  */
+    /* justify-content: center; placer les blocs au centre */
+    /* justify-content: space-between;  placer les blocs au centre en creant un espace entre eux */ 
+    /* justify-content: space-around; placer les blocs au centre en creant un espace entre eux et a cote  */
+    /* justify-content: space-evenly; placer les blocs au centre en creant un espace identique entre eux et a cote */
+    /* flex-wrap: wrap; */
+    /* align-items: center; */
+    /* align-items: baseline; aligner sur la ligne y de base, comme flex-start */
+    /* align-items: center; centrer les elements au centre par rapport a y */
+    /* align-items: flex-end; Aligner les elemts sur y mais a la fin de la page  */
+    /* align-content: flex-end; */
+    /* flex-direction: column; Mettre les blocs en colonne */
+    /* flex-direction: row; Valeur par defaut  */
+    /* flex-direction: row-reverse; Mettre sur une ligne x mais en ordre inverse  */
+    /* flex-direction: column-reverse; Mettre les blocs sur une colonne mais en ordre inverse  */
+    /* flex-wrap: wrap-reverse; quand il n'y a plus d'espaces saute a la ligne, fais l'inverse des lignes */
+    border: 2px solid darkcyan;
+    /* align-content: flex-end; Repartir les blocs entre elles  */
+}
+.child_one{
+    background-color: #0066ff;
+    width: 250px;
+    height: 200px;
+}
+.child_two{
+    background-color: #b2c0d4;
+    width: 250px;
+    height: 200px;
+}
+.child_three{
+    background-color: #234c8a;
+    width: 250px;
+    height: 200px;
+}
+.child_four{
+    background-color: #1a2536;
+    width: 250px;
+    height: 200px;
+}

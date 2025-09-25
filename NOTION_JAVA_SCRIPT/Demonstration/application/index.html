@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Devis Freelance Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💼 Générateur de Devis Pro</h1>
+            <p>Créez des devis professionnels en quelques clics</p>
+        </div>
+
+        <div class="app-container">
+            <!-- Navigation par onglets -->
+            <div class="tabs">
+                <button class="tab active" data-tab="profile">👤 Profil</button>
+                <button class="tab" data-tab="services">🛠️ Services</button>
+                <button class="tab" data-tab="quote">📄 Nouveau Devis</button>
+                <button class="tab" data-tab="history">📊 Historique</button>
+                <button class="tab" data-tab="settings">⚙️ Paramètres</button>
+            </div>
+
+            <!-- Onglet Profil -->
+            <div id="profile" class="tab-content active">
+                <div class="score-container">
+                    <div class="score-circle" id="profileScore">0%</div>
+                    <h3>Score de Complétude</h3>
+                    <p>Complétez votre profil pour améliorer vos devis</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Informations Personnelles</h3>
+                        <div class="form-group">
+                            <label>Nom / Raison sociale *</label>
+                            <input type="text" id="companyName" placeholder="Votre nom ou entreprise">
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="email" placeholder="contact@exemple.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Téléphone *</label>
+                            <input type="tel" id="phone" placeholder="+33 1 23 45 67 89">
+                        </div>
+                        <div class="form-group">
+                            <label>Site web</label>
+                            <input type="url" id="website" placeholder="https://monsite.com">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Adresse</h3>
+                        <div class="form-group">
+                            <label>Adresse *</label>
+                            <textarea id="address" rows="3" placeholder="123 Rue de la Paix&#10;75001 Paris"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>SIRET</label>
+                            <input type="text" id="siret" placeholder="12345678901234">
+                        </div>
+                        <div class="form-group">
+                            <label>TVA</label>
+                            <input type="text" id="vat" placeholder="FR12345678901">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Conditions</h3>
+                    <div class="form-group">
+                        <label>Conditions de paiement</label>
+                        <textarea id="paymentTerms" rows="2" placeholder="Paiement à 30 jours, acompte de 30% à la commande"></textarea>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="saveProfileBtn">💾 Sauvegarder le Profil</button>
+
+                <div id="profileSuggestions" class="suggestions">
+                    <h4>💡 Suggestions d'amélioration</h4>
+                    <ul id="profileSuggestionsList">
+                        <li>Complétez les champs obligatoires (*)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Onglet Services -->
+            <div id="services" class="tab-content">
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Ajouter un Service</h3>
+                        <div class="form-group">
+                            <label>Nom du service *</label>
+                            <input type="text" id="serviceName" placeholder="Développement site web">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="serviceDescription" rows="3" placeholder="Site web responsive avec CMS"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Prix unitaire (€) *</label>
+                            <input type="number" id="servicePrice" placeholder="500" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Unité</label>
+                            <select id="serviceUnit">
+                                <option value="projet">Par projet</option>
+                                <option value="heure">Par heure</option>
+                                <option value="jour">Par jour</option>
+                                <option value="page">Par page</option>
+                                <option value="article">Par article</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="addServiceBtn">➕ Ajouter le Service</button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Templates Rapides</h3>
+                        <p>Ajoutez rapidement des services courants :</p>
+                        <div class="template-buttons">
+                            <button class="btn btn-secondary btn-small" data-template="web">🌐 Web</button>
+                            <button class="btn btn-secondary btn-small" data-template="design">🎨 Design</button>
+                            <button class="btn btn-secondary btn-small" data-template="consulting">💼 Conseil</button>
+                            <button class="btn btn-secondary btn-small" data-template="writing">✍️ Rédaction</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Mes Services</h3>
+                    <div id="servicesList">
+                        <p class="empty-state">Aucun service configuré. Ajoutez votre premier service ci-dessus.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet Nouveau Devis -->
+            <div id="quote" class="tab-content">
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Informations Client</h3>
+                        <div class="form-group">
+                            <label>Nom du client *</label>
+                            <input type="text" id="clientName" placeholder="Entreprise ABC">
+                        </div>
+                        <div class="form-group">
+                            <label>Email client</label>
+                            <input type="email" id="clientEmail" placeholder="client@entreprise.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Adresse client</label>
+                            <textarea id="clientAddress" rows="3" placeholder="Adresse du client"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Paramètres du Devis</h3>
+                        <div class="form-group">
+                            <label>Numéro de devis</label>
+                            <input type="text" id="quoteNumber" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Validité (jours)</label>
+                            <input type="number" id="validityDays" value="30" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Remise (%)</label>
+                            <input type="number" id="discount" value="0" min="0" max="100" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label>TVA (%)</label>
+                            <input type="number" id="taxRate" value="20" min="0" max="100" step="0.1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Services Sélectionnés</h3>
+                    <div id="selectedServices">
+                        <p class="empty-state">Aucun service sélectionné</p>
+                    </div>
+                    <button class="btn btn-primary" id="addServicesBtn">➕ Ajouter des Services</button>
+                </div>
+
+                <div class="card">
+                    <h3>Résumé Financier</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="subtotalAmount">0.00€</div>
+                            <div class="stat-label">Sous-total</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="discountAmount">0.00€</div>
+                            <div class="stat-label">Remise</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="taxAmount">0.00€</div>
+                            <div class="stat-label">TVA</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalAmount">0.00€</div>
+                            <div class="stat-label">Total TTC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-2">
+                    <button class="btn btn-primary" id="generateQuoteBtn">📄 Générer le Devis</button>
+                    <button class="btn btn-success" id="saveQuoteBtn">💾 Sauvegarder</button>
+                </div>
+
+                <div id="quotePreview" class="quote-preview" style="display: none;"></div>
+            </div>
+
+            <!-- Onglet Historique -->
+            <div id="history" class="tab-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalQuotes">0</div>
+                        <div class="stat-label">Devis Créés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="acceptedQuotes">0</div>
+                        <div class="stat-label">Acceptés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalRevenue">0.00€</div>
+                        <div class="stat-label">CA Potentiel</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="conversionRate">0%</div>
+                        <div class="stat-label">Taux de Conversion</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Historique des Devis</h3>
+                    <div id="quoteHistory">
+                        <p class="empty-state">Aucun devis créé pour le moment</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet Paramètres -->
+            <div id="settings" class="tab-content">
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Données</h3>
+                        <p>Gérez vos données stockées localement</p>
+                        <div class="button-group">
+                            <button class="btn btn-secondary" id="exportBtn">📤 Exporter</button>
+                            <button class="btn btn-secondary" id="importBtn">📥 Importer</button>
+                            <button class="btn btn-danger" id="clearBtn">🗑️ Effacer Tout</button>
+                        </div>
+                        <input type="file" id="importFile" style="display: none;" accept=".json">
+                    </div>
+
+                    <div class="card">
+                        <h3>À Propos</h3>
+                        <p><strong>Générateur de Devis Pro v1.0</strong></p>
+                        <p>Application web pour freelances</p>
+                        <p>💡 <strong>Fonctionnalités :</strong></p>
+                        <ul>
+                            <li>Gestion complète des services</li>
+                            <li>Création de devis professionnels</li>
+                            <li>Calculs automatiques</li>
+                            <li>Historique et statistiques</li>
+                            <li>Export/Import des données</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour sélection de services -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sélectionner des Services</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="serviceModalList"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelModal">Annuler</button>
+                <button class="btn btn-primary" id="confirmModal">Ajouter</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

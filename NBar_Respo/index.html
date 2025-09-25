@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBAr by Noble</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="">
+                    <h1>Lacrea Devs</h1>
+                </a>
+            </div>
+            <ul class="links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">A Propos</a></li>
+                <li><a href="#">Projets</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="boutons">
+                <a href="#" class="button pro">Se Connecter</a>
+                <a href="#" class="button">Espace Pro</a>
+            </div>
+            <div class="button-menu">
+                <img class="image_open" src="./menu-svgrepo-com.svg" alt="">
+            </div>
+        </div>
+
+        <div class="menu_one">
+            <ul class="links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">A Propos</a></li>
+                <li><a href="#">Projets</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="diviser"></div>
+            <div class="boutons">
+                <a href="#" class="button pro">Se Connecter</a>
+                <a href="#" class="button">Espace Pro</a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        const bouton_to_click = document.querySelector('.button-menu')
+        const bouton_lui_meme = document.querySelector('.button-menu img')
+        const a_afficher = document.querySelector('.menu_one')
+
+        bouton_to_click.onclick = function (){
+            a_afficher.classList.toggle('open')
+            const Verification_open = a_afficher.classList.contains('open')
+            bouton_lui_meme.classList = Verification_open ? '🟰' : 'X'
+        }
+    </script>
+</body>
+</html>

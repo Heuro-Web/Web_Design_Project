@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstation</title>
+</head>
+<body>
+    <h3>Verifier l'age</h3>
+    <form action=""> 
+        <input type="text" name="" id="age" placeholder="Votre Age">
+        <button type="button" onclick="Verifier_age(event)">Envoyer</button>
+        <p class="message"></p>
+    </form>
+
+    <h2>Un compeur</h2>
+    <button id="plus" onclick="Plus()">+1</button>
+    <button id="moins" onclick="Moins()">-1</button>
+    <p class="count">0</p>
+  
+
+    <!-- Ajouter des taches automatiques -->
+
+    <h3>Ici on ajoute les taches</h3>
+    <input type="text" name="" id="input_tache">
+    <ul class="taches"></ul>
+    <button type="submit" onclick="Taches()">Ajouter</button>
+
+    <h2>Calculatrice Simple</h2>
+    <div class="calcul">
+        <button onclick="calculer('+')">+</button>
+        <button onclick="calculer('-')">-</button>
+        <button onclick="calculer('/')">/</button>
+        <button onclick="calculer('*')">*</button>
+        <br>
+        <br>
+        <input type="text" name="" id="n1" placeholder="Nombre1">
+        <br>
+        <input type="text" name="" id="n2" placeholder="Nombre 2">
+        
+        <p class>Le resulat est: <span id="resulat">0</span></p>
+    </div>
+    
+    <div class="jeu">
+        <h3>Notre Jeu</h3>
+        <div id="quiz">
+        </div>
+        <button onclick="CalculerScore()">Voir Les Reponses</button>
+        <p>Le Score est : <span class="score">0</span></p>
+    </div>
+
+    <div class="chrono">
+        <h2>Chrono</h2>
+        <button onclick="demarrer()" id="start">Demarrer</button>
+        <button onclick="Arreter()">Arreter</button>
+        <button onclick="Reset()">Reset</button>
+
+        <p id="chrono">0</p>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

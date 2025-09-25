@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    box-sizing: border-box;
+}
+body{
+    background: url(bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+}
+.navbar svg{
+    margin-top: -10px;
+}
+.navbar nav ul{
+    gap: 20px;
+    display: flex;
+    list-style-type: none;
+}
+.navbar nav ul li a{
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.nav_sign{
+    padding: 15px;
+}
+.nav_sign, .nav_sign .sign{
+    display: flex;
+    gap: 20px;
+}
+.nav_sign .sign svg{
+    margin-top: -20px;
+}
+.nav_sign .sign .up, .in {
+    padding: 3px;
+    background-color: rgb(128, 90, 163);
+    border-radius: 3px;
+    border: none;
+}
+.nav_sign .sign .in{
+    background-color: transparent;
+    padding: 3px 5px;
+    border: 2px solid #ffffff;
+}
+.nav_sign .sign .up a{
+    padding: 3px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.nav_sign .sign a{
+    font-weight: normal;
+    text-decoration: none;
+}
+
+
+main .description{
+    margin: 50px;
+    text-align: center;
+}
+main .description h1{
+    font-size: 2rem;
+}
+main .description p{
+    font-size: 1.3rem;
+}
+
+.check{
+    background-color: aliceblue;
+    display: inline-flex;
+    border-radius: 15px;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    left: 27%;
+}
+.check p, .check svg{
+    margin: 0;
+}
+.check .one{
+    display: flex;
+    /* gap: 10px; */
+}
+.check .one select{
+    border: none;
+    padding: -10px;
+    margin: 0;
+}
+.check .two{
+    margin: 0 20px;
+}
+.check .two a{
+    text-decoration: none;
+    color: #fff;
+    padding: 3px;
+    border-radius: 4px;
+    background-color: #2f92f9;
+}

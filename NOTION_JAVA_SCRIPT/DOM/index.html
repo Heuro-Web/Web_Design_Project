@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cours JS Dom</title>
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li>Accueil</li>
+            <li>A Propos</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <div class="click_event box">
+        <h4>Quelle est la capitale de DRC</h4>
+        <button id="btn_1">DRC</button>
+        <button id="btn_2">RWANDA</button>
+        <p class="rdc">La Bonne Reponse est : DRC</p>
+        <p class="rwanda">La Bonne Reponse est : Rwanda</p>
+    </div>
+    <div class="mousemove"></div>
+    <div class="keypress box">
+        <h2>Vous avez cliquer la touche : <span id="key"></span></h2>
+    </div>
+
+    <form>
+        <input type="text" name="" placeholder="Entrez votre nom">
+        <select id="s">
+            <option>Selectionner votre langage fav</option>
+            <option value="JScript">Jscript</option>
+            <option value="Python">python</option>
+            <option value="java">java</option>
+        </select>
+        <input type="checkbox" name="" id="cvg">
+        <label for="cvg" style="color: black;">Conditions d'ut</label>
+
+        <input type="submit" value="Valider">
+        <div class="objet" style="margin-top: 20px; color: black;">
+            
+        </div>
+    </form>
+
+    <script src="app.js"></script>
+</body>
+</html>

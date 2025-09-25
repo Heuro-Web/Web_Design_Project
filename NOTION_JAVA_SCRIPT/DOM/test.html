@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <h1 style="color: black;" id="texte"></h1>
+<script>
+    // const texte = ["Bienvenue", "à UCBC", "Département Informatique"];
+    // const cible = document.querySelector("#typewriter");
+
+const mots = ["Bonjour", "Bienvenue"];
+let motIndex = 0;
+let caractere_mot = 0;
+let efface = false;
+
+function ecrireEffacer() {
+    const cible = document.querySelector("#texte");
+    const motActuel = mots[motIndex];
+
+    if (!efface) {
+        cible.textContent = motActuel.slice(0, caractere_mot + 1);
+        caractere_mot++;
+        if (caractere_mot === motActuel.length) {
+            efface = true;
+            setTimeout(ecrireEffacer, 1000);
+            return;
+        }
+    } else {
+        cible.textContent = motActuel.slice(0, caractere_mot - 1);
+        caractere_mot--;
+        if (caractere_mot === 0) {
+            efface = false;
+            motIndex = (motIndex + 1) % mots.length;
+        }
+    }
+    
+
+    setTimeout(ecrireEffacer, 1000);
+}
+
+ecrireEffacer();
+
+</script>
+</body>
+</html>
+
+let tableau_mot = ['Developper','Innover']
+let caractere_mot = 0
+let index_mot = 0
+let boucle = false
+
+function Effacer() {
+    const ecritoire = document.querySelector('.mot')
+    const mot_actuel = tableau_mot[index_mot]
+    if(!boucle){
+        ecritoire.textContent = mot_actuel.slice(0, caractere_mot+1)
+        caractere_mot ++
+        if(caractere_mot === mot_actuel.length){
+            boucle = true
+            setTimeout(Effacer, 1000)
+            return
+        }
+    }
+    else{
+        ecritoire.textContent = mot_actuel.slice(0, caractere_mot-1)
+        caractere_mot --
+        if(caractere_mot === 0){
+            boucle = false
+        }
+    }
+    setTimeout(Effacer, 200)
+}
+Effacer()

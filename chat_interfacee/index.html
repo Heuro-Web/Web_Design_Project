@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation multipages</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .menu {
+      margin-bottom: 20px;
+    }
+    button {
+    
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .page {
+      display: none; /* cachée par défaut */
+    }
+    .active {
+      display: block; /* seulement la page active */
+    }
+  </style>
+</head>
+<body>
+  <!-- Menu -->
+  <div class="menu">
+    <button onclick="showPage('accueil')">Accueil</button>
+    <button onclick="showPage('projet')">Projet</button>
+    <button onclick="showPage('contact')">Contact</button>
+    <button onclick="showPage('services')">Services</button>
+    <button onclick="showPage('about')">À propos</button>
+  </div>
+
+  <!-- Pages -->
+  <div id="accueil" class="page active">
+    <h1>Bienvenue 👋</h1>
+    <p>Ceci est la page d’accueil.</p>
+  </div>
+
+  <div id="projet" class="page">
+    <h1>Projet</h1>
+    <p>Voici tous les détails de notre projet.</p>
+  </div>
+
+  <div id="contact" class="page">
+    <h1>Contact</h1>
+    <p>Remplissez le formulaire de contact ici.</p>
+  </div>
+
+  <div id="services" class="page">
+    <h1>Nos Services</h1>
+    <p>Découvrez la liste de nos services.</p>
+  </div>
+
+  <div id="about" class="page">
+    <h1>À propos</h1>
+    <p>Notre mission et vision.</p>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      // cacher toutes les pages
+      let pages = document.querySelectorAll(".page");
+      pages.forEach(p => p.classList.remove("active"));
+
+      // afficher la bonne page
+      document.getElementById(pageId).classList.add("active");
+    }
+  </script>
+</body>
+</html>

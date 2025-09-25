@@ -1,0 +1,264 @@
+/*BACKGROUND NAV*/
+ 
+nav {
+ 
+    width: 100%;
+    background-color: #424558;
+ 
+}
+ 
+/*Suppression des marges*/
+ 
+nav > ul {
+ 
+    margin: 0px;
+    padding: 0px;
+ 
+}
+ 
+nav > ul::after {
+ 
+    content: "";
+    display: block;
+    clear: both;
+ 
+}
+ 
+nav > ul > li {
+ 
+    float: left;
+    position: relative;
+ 
+}
+ 
+nav > ul > li > a {
+ 
+    padding: 20px 30px;
+    color: #FFF;
+ 
+}
+ 
+nav > ul > li > a:hover {
+ 
+    padding: 20px 30px;
+    color: #0086E0;
+ 
+}
+ 
+nav >  ul > li:hover a {
+ 
+    padding: 15px 30px 20px 30px;
+ 
+}
+ 
+/*Suppression des puces devant les listes du menu de nav*/
+ 
+nav li{
+ 
+    list-style-type: none;
+ 
+}
+ 
+/*Cache les sous menu*/
+ 
+.submenu {
+ 
+    display: none;
+ 
+}
+ 
+/*Suppression des liens hypertextes dans les listes du menu de nav et mise en horizontale du menu*/
+ 
+nav a{
+ 
+    display: inline-block;
+    top: 2rem;
+    left: 0;
+    text-decoration: none;
+ 
+}
+ 
+/*Affichage des sous menu qu'on passe la souris dessus*/
+ 
+nav li:hover .submenu {
+ 
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 0px;
+    z-index: 1000;
+ 
+}
+ 
+/*Ajout d'une bordure dans les sous menu*/
+ 
+.submenu li {
+ 
+    border-bottom: 1px solid #CCC;
+ 
+}
+ 
+/*Redimensionnement des sous menu*/
+ 
+.submenu li a {
+ 
+    padding: 15px 10px;
+    font-size: 13px;
+    color: #222538;
+    width: 270px;
+ 
+}
+ 
+ 
+/*Couleur sur les onglets menu quand on passe la souris dessus*/
+ 
+.menu-accueil:hover {
+ 
+    border-top: 5px solid #0070bb;
+    background-color: RGBA(000,112,192,0.15);
+ 
+}
+ 
+.menu-apprendre-a-piloter:hover {
+ 
+    border-top: 5px solid #0070bb;
+    background-color: RGBA(000,112,192,0.15);
+ 
+}
+ 
+.menu-aeroclub:hover {
+ 
+    border-top: 5px solid #0070bb;
+    background-color: RGBA(000,112,192,0.15);
+ 
+}
+ 
+.menu-actu:hover {
+ 
+    border-top: 5px solid #0070bb;
+    background-color: RGBA(000,112,192,0.15);
+ 
+}
+ 
+.menu-decouverte:hover {
+ 
+  border-top: 5px solid #0070bb;
+  background-color: RGBA(000,112,192,0.15);
+ 
+}
+ 
+.menu-coin-pilote:hover {
+ 
+    border-top: 5px solid #0070bb;
+    background-color: RGBA(000,112,192,0.15);
+ 
+}
+ 
+.menu-contact:hover {
+ 
+    border-top: 5px solid #0070bb;
+    background-color: RGBA(000,112,192,0.15);
+ 
+}
+ 
+.menu-faq:hover {
+ 
+    border-top: 5px solid #0070bb;
+    background-color: RGBA(000,112,192,0.15);
+ 
+}
+ 
+ 
+/*Couleur des sous menu*/
+ 
+.menu-apprendre-a-piloter .submenu {
+ 
+    background-color: RGB(255, 255, 255, .4);
+ 
+}
+ 
+.menu-aeroclub .submenu {
+ 
+    background-color: RGB(255, 255, 255, .4);
+ 
+}
+ 
+.menu-actu .submenu {
+ 
+    background-color: RGB(255, 255, 255, .4);
+ 
+}
+ 
+.menu-decouverte .submenu {
+ 
+  background-color: RGB(255, 255, 255, .4);
+ 
+}
+ 
+.menu-coin-pilote .submenu {
+ 
+    background-color: RGB(255, 255, 255, .4);
+ 
+}
+ 
+/*Coloration texte des sous menu quand on passe la souris dessus*/
+ 
+.submenu li:hover a {
+ 
+    color: #EEE;
+    font-weight: bold;
+ 
+}
+ 
+/*Background des sous menu quand on passe la souris dessus*/
+ 
+.menu-apprendre-a-piloter .submenu li:hover {
+ 
+    background-color: RGB(000,115,200);
+ 
+}
+ 
+.menu-aeroclub .submenu li:hover {
+ 
+    background-color: RGB(000,115,200);
+ 
+}
+ 
+.menu-actu .submenu li:hover {
+ 
+    background-color: RGB(000,115,200);
+ 
+}
+ 
+.menu-decouverte .submenu li:hover {
+ 
+  background-color: RGB(000,115,200);
+ 
+}
+ 
+.menu-coin-pilote .submenu li:hover {  
+ 
+    background-color: RGB(000,115,200);
+ 
+}
+
+@media screen and (min-width: 768px) /* sur les écrans normaux ayant une largeur minimum de 768 px */
+{
+ 
+#navBar {
+    color:red;
+    width:50%;
+}
+ 
+}
+ 
+@media handheld and (max-width: 768px) /* sur les écrans mobiles et de petites tailles ayant une largeur maximum de 768 px */
+{
+ 
+#navBar {
+    color:blue;
+    width:25%;
+}
+ 
+}

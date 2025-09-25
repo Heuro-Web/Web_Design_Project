@@ -1,0 +1,111 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(31, 31, 82) ;
+}
+header{
+    display: flex;
+    justify-content: space-evenly;
+}
+header nav ul{
+    margin: 15px;
+}
+header nav ul a{
+    text-decoration: none;
+    margin: 10px;
+}
+header h1{
+    margin: 15px;
+    font-size: 1.3rem;
+    background-color: #8bc1e0;
+    padding: 5px;
+    border-radius: 50%;
+
+}
+header button{
+    color: rgb(206, 166, 243);
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 10px;
+    background-color: rgb(55, 36, 73);
+    border-radius: 6px;
+}
+.me{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+section .aboutme{
+    width: 30%;
+}
+section .aboutme p{
+    margin: 0;
+}
+section .aboutme h2, 
+section .aboutme p,
+section .about h2{
+    text-align: center;
+}
+section .aboutme img{
+    width: 200px;
+    height: 200px;
+    border-radius: 70%;
+    object-fit: cover;
+}
+section .about{
+    margin: 40px 0;
+    width: 30%;
+}
+.me .about .descriptionAuthor{
+    text-align: justify;
+}
+.me .about a{
+        text-decoration: none;
+        padding: 5px;
+        border-radius: 7px;
+        background-color: #8bc1e0;
+}
+.me h2{
+    color: whitesmoke;
+}
+section .about h2, 
+section .about p{
+    margin: 15px;
+}
+#projects{
+    background-color: #8bc1e0;
+}
+#projects .projects{
+    display: flex;
+    gap:30px;
+    justify-content: center;
+}
+#projects .projects .projet{
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #e7e7e7;
+    width: 20%;
+}
+#projects h2{
+    margin: 0 30px;
+}
+#projects .projects .projet p{
+    text-align: justify;
+}
+.experience h2{
+    color: whitesmoke;
+}
+.experience .components_ex{
+    float: right;
+}
+.experience .vide{
+    text-align: center;
+    background-color: ;
+}

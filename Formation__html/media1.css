@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+} 
+.container{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+nav ul{
+    list-style-type: none;
+    gap: 10px;
+    display: flex;
+}
+.photo{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.photo .image img{
+    width: 200px;
+    height: 200px;
+}
+.left_right{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.left_right .left{
+    width: 30%;
+}
+.form{
+    display: flex;
+    justify-content: space-evenly;
+}
+.form form{
+    padding: 22px;
+    background-color: rgb(175, 126, 221);
+    width: 40%;
+}
+.form form input[type="text"],textarea, .form form input[type="email"]{
+    width: 100%;
+    margin: 10px 0;
+    /* padding: 10px; */
+}
+footer .foot{
+    margin: 10px 0;
+    border-top: 1px solid blueviolet;
+    text-align: center;
+}
+footer .foot p{
+    margin: 10px 0;
+}
+@media screen and (max-width: 768px) {
+    .container{
+        flex-wrap: wrap;
+        width: 100%;
+        /* max-width: 100%; */
+        text-align: center;
+        padding: 5px;
+    }
+    .photo{
+        flex-wrap: wrap;
+    }
+    .photo .image img{
+        width: 100%;
+        max-width: 100%;
+    }
+    .left_right{
+        flex-wrap: wrap;
+    }
+    .left_right .left{
+        width: 100%;
+    }
+    .form{
+        flex-wrap: wrap;
+    }
+    .form form{
+        width: 100%;
+    }
+    footer .foot p{
+        width: 100%;
+    }
+    img, video, iframe{
+        width: 100%;
+        max-width: 100%;
+    }
+}

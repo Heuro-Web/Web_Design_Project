@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');  
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    background: url('https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg');
+    background-position: center;
+    background-size: cover;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+}
+a:hover{
+    color: #643;
+}
+header{
+    position: relative;
+    background-color: rgba(0, 8, 0, 0.238);
+    padding: 0 2rem;
+}
+.navbar{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+}
+.navbar .logo a{
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+}
+.navbar .button_menu{
+    cursor: pointer;
+    display: none;
+}
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+.action-button{
+    background-color: #62B7C2;
+    font-weight: bold;
+    font-size: .9rem;
+    outline: none;
+    padding: .5rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #120d31;
+    border: 1px solid #408080;
+}
+
+.pro{
+    color: #fff;
+    background-color: transparent;
+}
+
+.menu-respo{
+    display: none;
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    width: 210px;
+    top: 60px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 0 10px;
+    overflow: hidden;
+
+}
+.menu-respo li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem;
+}
+.menu-respo.open{
+    height: 320px;
+}
+.button-menu .action-button{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.diviser{
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 80%;
+    background-color: #408080;
+}
+
+
+@media (max-width: 990px){
+    header{
+        background-color: none;
+    }
+    .navbar{
+        justify-content: space-between;
+    }
+    .navbar .links,
+    .navbar .action-button{
+        display: none;
+    }
+    .navbar .button_menu{
+        display: block;
+    }
+    .menu-respo{
+        display: block;
+    }
+}
+@media (max-width: 576px){
+    
+    .menu-respo{
+        left: 2rem;
+        width: unset;
+    }
+}

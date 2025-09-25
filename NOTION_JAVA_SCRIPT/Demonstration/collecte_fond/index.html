@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collecte de Fonds</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- AUTHENTIFICATION -->
+  <div class="container" id="auth-container">
+    <h1>Collecte de Fonds</h1>
+    <div id="register-form">
+      <h2>Inscription</h2>
+      <input type="text" id="reg-name" placeholder="Nom">
+      <input type="email" id="reg-email" placeholder="Email">
+      <input type="password" id="reg-pass" placeholder="Mot de passe">
+      <button id="register-btn">S'inscrire</button>
+      <p>Vous avez déjà un compte ? <span id="show-login">Connexion</span></p>
+    </div>
+    <div id="login-form" class="hidden">
+      <h2>Connexion</h2>
+      <input type="email" id="login-email" placeholder="Email">
+      <input type="password" id="login-pass" placeholder="Mot de passe">
+      <button id="login-btn">Se connecter</button>
+      <p>Pas de compte ? <span id="show-register">Inscription</span></p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD ADMIN -->
+  <div class="container hidden" id="dashboard-container">
+    <h1>Dashboard Admin</h1>
+    <button id="logout-btn">Se déconnecter</button>
+
+    <div id="create-collecte">
+      <h2>Créer une collecte</h2>
+        <form action="">
+            <input type="text" id="collecte-title" placeholder="Titre">
+            <input type="number" id="collecte-objectif" placeholder="Objectif (€)">
+            <input type="datetime-local" id="collecte-deadline">
+            <textarea id="collecte-desc" placeholder="Description"></textarea>
+            <button id="create-btn">Créer</button>
+        </form>
+    </div>
+
+    <h2>Vos collectes</h2>
+    <div id="collectes-list"></div>
+  </div>
+
+  <!-- PAGE COLLECTE -->
+  <div class="container hidden" id="collecte-page">
+    <h1 id="collecte-title-display"></h1>
+    <p id="collecte-desc-display"></p>
+    <p>Objectif : <span id="collecte-objectif-display"></span> €</p>
+    <p>Total collecté : <span id="collecte-total-display"></span> €</p>
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <p>Date limite : <span id="collecte-deadline-display"></span></p>
+
+    <h2>Participer</h2>
+    <input type="number" id="contrib-montant" placeholder="Montant (€)">
+    <button id="contrib-btn">Contribuer</button>
+
+    <h2>Participants</h2>
+    <ul id="participants-list"></ul>
+
+    <h2>Notifications</h2>
+    <ul id="notifications-list"></ul>
+
+    <button id="back-dashboard">Retour Dashboard</button>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>

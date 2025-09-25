@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #262626;
+}
+
+.ring{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    letter-spacing: 15px;
+    border: 3px solid #3c3c3c;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: greenyellow;
+    line-height: 180px;
+    box-shadow: 0px 0px 20px rgba(0,0, 0, 0.5);
+}
+.ring::before{
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border-top: 3px solid #fff000;
+    border-right: 3px solid #fff000;
+    animation: soft 2s linear infinite;
+}
+.ring::after{
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    color: #fff000;
+    /* border-top: 3px solid #fff000;
+    border-right: 3px solid #fff000; */
+    animation: anim 2s linear infinite;
+}
+span{
+    display: block;
+    position: absolute;
+    top: calc(50% - 2px);
+    transform-origin: right;
+    left: -10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff000;
+    animation: soft 2s linear infinite;
+}
+/* span::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #fff000;
+    top: -30px;
+    left: -8px;
+    border-radius: 50%;
+} */
+
+@keyframes soft{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes anim{
+    0%{
+        /* transform: rotate(45deg); */
+        content: 'l';
+        animation-delay: 3s;
+    }
+    10%{
+        /* transform: rotate(405deg); */
+        content: 'lo';
+    }
+    20%{
+        /* transform: rotate(45deg); */
+        content: 'loa';
+    }
+    30%{
+        /* transform: rotate(405deg); */
+        content: 'load';
+    }
+    40%{
+        /* transform: rotate(45deg); */
+        content: 'loadi';
+    }
+    50%{
+        /* transform: rotate(405deg); */
+        content: 'loadin';
+    }
+    60%{
+        /* transform: rotate(45deg); */
+        content: 'loading';
+    }
+70%{
+        /* transform: rotate(405deg); */
+        content: '';
+    }
+80%{
+        /* transform: rotate(45deg); */
+        content: '';
+    }
+90%{
+        /* transform: rotate(405deg); */
+        content: '';
+    }
+100%{
+    content: '';
+}
+
+}

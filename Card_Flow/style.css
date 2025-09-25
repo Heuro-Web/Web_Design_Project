@@ -1,0 +1,23 @@
+body{
+    background-color: #f9f9f9;
+}
+.cards-items{
+    width: 300px;
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    margin: auto;
+}
+.card{
+    background: linear-gradient(to right,#000046, #1CB5E0);
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    width: 300px;
+    /* text-align: center; */
+    padding: 20px 30px;
+    border-radius: 13px;
+    flex-shrink: 0;
+    /* background-color: rgb(182, 47, 47); */
+    border-radius: 30% 50% 40% 21% / 28% 78% 10% 33%;
+}

@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* .container{
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    background-color: azure;
+    box-shadow: 5px 5px 5px #222;
+    padding: min(5em, 8%);
+} */
+
+.font{
+    width: 100%;
+    max-width: 1200px;
+}
+.font h1{
+   /* font-size: 7vw; pour s'adapter aux largeurs automatiquements */
+   font-size: clamp(1.8rem, 10vw, 3rem);
+}

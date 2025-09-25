@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+body{
+    font-family:'Quicksand', sans-serif;
+    background-color: #0d1a6e;
+    margin-left: 70px;
+}
+.logo h1{
+    text-transform: uppercase;
+    color: red;
+}
+nav{
+    margin-top: 20px;
+}
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+}
+nav ul li a{
+    font-weight: bold;
+    margin-right: 5px;
+    text-transform: uppercase;
+    color: aliceblue;
+    text-decoration: none;
+}
+nav ul li .sub{
+    border: 1px solid #0d1a6e;
+    padding: 5px;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(red, rgb(128, 132, 180), rgb(35, 59, 165));
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}
+#gauche{
+    margin-right: 90%;
+    width: 550px
+}
+#gauche .gauche p{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: aliceblue;
+}
+#gauche .gauche h1{
+    margin-top: 0;
+    font-size: 50px;
+    color: aliceblue;
+}
+#gauche .gauche span{
+    color: yellow;
+}
+#gauche .lorem h3{
+    text-decoration: underline;
+    color: aliceblue;
+}
+#gauche .lorem p{
+    color: aliceblue;
+}
+#gauche .readmore{
+    border: 1px solid #0d1a6e;
+    border-radius: 10px;
+    background-color: blueviolet;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+}
+#gauche .readmore a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: aqua;
+}
+#droite .image img{
+    width: 300px;
+    border-radius: 10px;
+    height: 450px;
+}
+section{
+    display: flex;
+}
