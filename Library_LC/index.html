@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library LC_ Devs</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+
+    <div class="header" data-header>
+        <div class="top_bar">
+            <div class="container">
+                <p>Books Money for All</p>
+            </div>
+        </div>
+        <div class="nav_wrapper">
+            <div class="container">
+                <h1 class="h1">
+                    <a href="./index.html" class="logo">LC Devs Books</a>
+                </h1>
+                <button class="nav_open_btn" aria-label="Open Menu" data-nav-open-btn>
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </button>
+                <nav class="navbar" data-navbar>
+                    <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+                        <ion-icon name="logo-youtube"></ion-icon>
+                    </button>
+                    <ul class="nav-list">
+                        <li><a href="#" class="navbar_list">Home</a></li>
+                        <li><a href="#" class="navbar_list">About</a></li>
+                        <li><a href="#" class="navbar_list">Shop</a></li>
+                        <li><a href="#" class="navbar_list">Blog</a></li>
+                        <li><a href="#" class="navbar_list">Product</a></li>
+                        <li><a href="#" class="navbar_list">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header_action">
+                    <div class="search_wrapper" data-search-wrapper>
+                        <button class="header_action_btn" aria-label="Toggle Search" data-search-btn>
+                            <!-- Action search button -->
+                            <ion-icon name="logo-youtube" class="search_icon"></ion-icon>
+                            <ion-icon name="logo-facebook" class="close_btn"></ion-icon>
+                        </button>
+                        <div class="input_wrapper">
+                            <input type="search" name="search" class="search_input" placeholder="Search Here">
+                            <button class="search_submit" aria-label="Submit Search">
+                                <!-- Search icon -->
+                                <ion-icon name="logo-youtube"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="header_action_btn" aria-label="Open Whishlist" data-panel-btn="Whishlist">
+                        <ion-icon name="logo-youtube"></ion-icon>
+                        <data value="3" class="btn_badge">03</data>
+                    </button>
+                    <button class="header_action_btn" aria-label="Open shopping Card" data-panel-btn="card">
+                        <ion-icon name="logo-youtube"></ion-icon>
+                        <data value="3" class="btn_badge">03</data>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <main>
+        <div class="items">
+            <ul class="grid_list">
+                <li>
+                    <div class="product_card">
+                        <figure class="card_banner">
+                            <img src="./assets/images/d1.jpg" alt="Fresh Orange" loading="lazy">
+                             <div class="btn_wrapper">
+                                <button class="product_btn" aria-label="Add to Card">
+                                  <ion-icon name="logo-youtube"></ion-icon>
+                                  <div class="tooltip">Add to card</div>  
+                                </button>
+                            </div>
+                        </figure>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&display=swap');
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',  sans-serif;
+}
+
+:root{
+    --base-color : #11121a;
+    --hover-color : #222533;
+    --active-color : #b0b3c1;
+    --text-color : #1a9c9c;
+    --border-color : #42434a;
+}
+
+body{
+    min-height: 100dvh;
+    min-height: 100vh;
+    background: var(--base-color);
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+
+
+/* ------Parie Navbar------- */
+
+#navbar{
+    box-sizing: border-box;
+    height: 100vh;
+    width: 250px;
+    background-color: var(--base-color);
+    padding: 5px 1em;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    border-right: 1px solid var(--border-color);
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+#navbar.close{
+    width: 40px;
+    padding: 5px;
+}
+#navbar ul{
+    list-style-type: none;
+}
+
+#navbar>ul>li:first-child{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+    .logo{
+        font-weight: bold;
+    }
+}
+
+#navbar>ul>li.active a{
+    color: var(--active-color);
+    svg{
+        fill: var(--active-color);
+    }
+}
+
+#navbar a,
+#navbar #project,
+#navbar .logo{
+    border-radius: .5em;
+    padding: .85em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    color: var(--text-color);
+}
+
+#project{
+    text-align: left;
+    border: none;
+    background: none;
+    width: 100%;
+    font: inherit;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+#navbar a:hover, #navbar  #project:hover{
+    background-color: var(--hover-color);
+}
+
+#navbar .project_details{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+    >div{
+        overflow: hidden;
+    }
+}
+
+#navbar .project_details.open{
+    grid-template-rows: 1fr;
+}
+
+#navbar .project_details a{
+    padding-left: 2rem;
+}
+.open_nav{
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: .5em;
+    color: var(--text-color);
+    font: inherit;
+}
+.open_nav:hover{
+    background-color: var(--hover-color);
+}
+
+
+
+main{
+    padding: min(30px, 7%);
+}
+main p{
+    color: var(--text-color);
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.container{
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: min(3em, 15%);
+    margin-bottom: 20px;
+    h2,p{
+        margin-top: 1em;
+    }
+}

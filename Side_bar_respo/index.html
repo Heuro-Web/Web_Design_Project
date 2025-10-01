@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="./app.js" defer></script>
+    <title>Lacrea Devs Side Bar</title>
+</head>
+<body>
+    <!-- NavBar Contents -->
+
+    <nav id="navbar">
+        <ul>
+            <!-- Button pour ouvrir la navbar et la  fermer -->
+            <li>
+                <span class="logo">Lacrea Devs</span>
+                <button class="open_nav" onclick="Open()">O</button>
+            </li>
+            <li class="active"><a href="#">
+                <span>Home</span>
+            </a></li>
+            <!-- Button for projects, partens -->
+            <li>
+                <button id="project" onclick="toogleSubMenu(this)">
+                    <span>Confiance</span>
+                </button>
+                <ul class="project_details">
+                    <div>
+                        <li><a href="#">Realisation</a></li>
+                        <li><a href="#">Partenaires</a></li>
+                    </div>
+                </ul>
+            </li>
+
+            <li><a href="#">Equipe</a></li>
+            <li><a href="#">A Propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Partie principale -->
+
+    <main>
+        <div class="container">
+            <h2>Hello World</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi iure, id sed harum vitae ea incidunt animi corporis nam et 
+                totam itaque, ipsa, nemo consequuntur necessitatibus repudiandae. Neque, earum est.
+            </p>
+        </div>
+                <div class="container">
+            <h2>Hello World</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error velit nemo, ipsa eaque qui rerum hic consequatur illum, natus excepturi officia iusto minima quaerat officiis harum itaque nam mollitia maiores! Itaque minima, rem corporis tenetur totam ipsum error cupiditate, quos culpa maiores repellat vero, cumque adipisci nobis provident consequuntur pariatur aliquam similique ratione fugit aut. Qui ipsam quidem molestiae et nostrum. Sint error et repellendus. Est, dicta inventore? Quisquam, eos labore quos fugiat accusamus possimus itaque ut, cumque cupiditate reprehenderit vel placeat id quae illum consequuntur molestiae nisi tempora quod officia debitis ab culpa. Pariatur saepe incidunt sequi quos eaque?
+            </p>
+        </div>
+                <div class="container">
+            <h2>Hello World</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt repellat tempore magni soluta illum rem vel ipsum iure eligendi perferendis ut reiciendis hic cumque, excepturi autem minima magnam ab voluptas consectetur, possimus distinctio? Ut cupiditate obcaecati eos consequuntur alias asperiores ullam nobis, maxime possimus mollitia minima repellat totam aut tempore.
+            </p>
+        </div>
+    </main>
+</body>
+</html>
