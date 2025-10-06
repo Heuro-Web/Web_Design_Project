@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add to card</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" type="text/javascript" defer></script>
+</head>
+<body>
+    
+<div class="product_list">
+  <div class="card_content">
+    <div class="card_images">
+      <img src="./login-page-website-example.png.webp" width="100px" alt="">
+    </div>
+    <div class="card_details">
+      <h3 class="card_detail_title">Chapon 1</h3>
+      <p class="card_description">Taille maximale</p>
+      <div class="card_content_price">
+        <span class="proposition_newPrice">$32.89</span>
+        <span class="proposition_oldPrice">$35.54</span>
+      </div>
+      <button class="add_to_cart">Ajouter au panier</button>
+    </div>
+  </div>
+
+  <div class="card_content">
+    <div class="card_images">
+      <img src="./minimalist-website-example-justinmind.png.webp" width="100px" alt="">
+    </div>
+    <div class="card_details">
+      <h3 class="card_detail_title">Chapon 2</h3>
+      <p class="card_description">Taille moyenne</p>
+      <div class="card_content_price">
+        <span class="proposition_newPrice">$40.89</span>
+        <span class="proposition_oldPrice">$45.54</span>
+      </div>
+      <button class="add_to_cart">Ajouter au panier</button>
+    </div>
+  </div>
+</div>
+
+<!-- Panier -->
+<div class="cart">
+  <h2>Panier</h2>
+  <div class="cart_items"></div>
+  <h3>Total : $<span id="cart_total">0.00</span></h3>
+</div>
+
+</body>
+</html>

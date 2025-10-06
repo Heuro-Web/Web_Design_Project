@@ -24,64 +24,14 @@ window.addEventListener('scroll', ()=>{
     window.scrollY > 30 ? header.classList.add('show_') : header.classList.remove('show_') 
 })
 
-// Button discuter avec Nous
-
-
-let Tab_mot_ = ['Discuter Avec Nous', 'Nous Ecrire un message']
-let index_mot_ = 0
-let index_caracter_mot = 0
-let boucle = false
-
-function Discuss_button() {
-    const button_discuss = document.getElementById('discuss_with')
-    let mot_actuel = Tab_mot_[index_mot_]
-    if(!boucle){
-        button_discuss.textContent = mot_actuel.slice(0, index_caracter_mot + 1)
-        index_caracter_mot ++
-        if(index_caracter_mot === mot_actuel.length){
-            boucle = true
-            setTimeout(Discuss_button, 2500)
-            return
-        }
-    }
-    else{
-        button_discuss.textContent = mot_actuel.slice(0, index_caracter_mot - 1)
-        index_caracter_mot --
-        if(index_caracter_mot === 0){
-            boucle = false
-            index_mot_ = (index_mot_ + 1) % Tab_mot_.length
-        }
-    }
-    setTimeout(Discuss_button, 100)
-    
-}
-
-Discuss_button()
-
 // Changer les images automatiquement
 
-const ALL_images = document.querySelectorAll('.category_item.first img')
-const ALL_image_sec = document.querySelectorAll('.category_item.second img')
-const ALL_images_thr = document.querySelectorAll('.category_item.third img')
-const ALL_images_las = document.querySelectorAll('.category_item.last img')
+const ALL_images = document.querySelectorAll('.category_item img')
 let index = 0
-let index_f = 0
-let index_t = 0
-let index_th = 0
-
 
 setInterval(() => {
     ALL_images[index].classList.remove("active")
-    ALL_image_sec[index_f].classList.remove("active")
-    ALL_images_thr[index_t].classList.remove("active")
-    ALL_images_las[index_th].classList.remove("active")
     index = (index + 1) % ALL_images.length
-    index_f = (index_f + 1) % ALL_image_sec.length
-    index_t = (index_t + 1) % ALL_images_thr.length
-    index_th = (index_th + 1) % ALL_images_las.length
-    ALL_image_sec[index_f].classList.add("active")
-    ALL_images_thr[index_t].classList.add("active")
-    ALL_images_las[index_th].classList.add("active")
     ALL_images[index].classList.add("active")
 }, 5000);
 
