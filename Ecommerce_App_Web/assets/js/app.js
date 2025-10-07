@@ -21,7 +21,7 @@
 
 const header = document.querySelector(".header")
 window.addEventListener('scroll', ()=>{
-    window.scrollY > 30 ? header.classList.add('show_') : header.classList.remove('show_') 
+    window.scrollY > 20 ? header.classList.add('show_') : header.classList.remove('show_') 
 })
 
 // Button discuter avec Nous
@@ -52,7 +52,7 @@ function Discuss_button() {
             index_mot_ = (index_mot_ + 1) % Tab_mot_.length
         }
     }
-    setTimeout(Discuss_button, 100)
+    setTimeout(Discuss_button, 50)
     
 }
 

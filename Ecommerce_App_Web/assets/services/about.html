@@ -10,9 +10,10 @@
     <meta name="description" content="Company Noble">
     <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-    <script src="./assets/js/app.js" type="text/javascript" defer></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="shortcut icon" href="./assets/img/logo/logo.jpg" type="image/x-icon">
+    <script src="/assets/js/app.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/about.css">
+    <link rel="shortcut icon" href="/assets/img/logo/logo.jpg" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -23,14 +24,14 @@
         <!-- PARTIE LOGO -->
 
             <div class="nav_bar_logo">
-                <span><img src="./assets/img/logo/logo.jpg" alt=""></span>
+                <span><img src="/assets/img/logo/logo.jpg" alt=""></span>
             </div>
         <!-- PARTIE NAV BAR -->
             <nav class="navbar_links">
                 <ul class="links">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="./assets/services/shop.html">Shop</a></li>
-                    <li><a href="./assets/services/about.html">About</a></li>
+                    <li><a href="#" >Home</a></li>
+                    <li><a href="/assets/services/shop.html">Shop</a></li>
+                    <li><a href="#" class="active">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
@@ -38,13 +39,12 @@
         <!-- PARTIE SEARCH ITEMS -->
         <div class="search_item">
             <div class="container">
-                <div class="search_bar">
-                    <input type="search" name="search" placeholder="Search item">
-                    <span><ion-icon name="search-outline"></ion-icon></span>
-                </div>
                 <div class="notification">
                     <div class="icon_notif add_to_wishlist">
                         <ion-icon name="person-add"></ion-icon>
+                    </div>
+                    <div class="icon_notif user_sign">
+                        <ion-icon name="menu-outline"></ion-icon>
                     </div>
                 </div>
             </div>
@@ -60,79 +60,67 @@
     <!-- LA PARTIE MAIN -->
 
     <main>
-        <section class="home_content">
-            <div class="info_home">
-                <div class="home_content_left">
-                    <h1>Haraka Shop — <br> Bienvenue sur le marché <br> de tous !</h1>
-                    <p class="description">Ici, chacun peut bâtir sa propre boutique, <br> 
-                        vendre ses produits, et faire grandir <br> sa communauté.</p>
-                    <button>Discuter Avec Nous</button>
-                </div>
-                <div class="home_content_right">
-                    <span>
-                        <!-- <img src="./assets/img/logo/laloca.png" alt=""> -->
-                         <img src="assets/img/logo/bg.jpg" ">
-                    </span>
-                </div>
-            </div>
-        </section>
 
         <section class="services">
             <div class="services_items">
                 <div class="services_items_details">
                     <div class="item_service">
                         <h1 class="item_service_title">
-                            Les Services que nous vous Offrons
+                            A Propos de Haraka Shop
                         </h1>
                         <p class="item_service_desc">
-                            Haraka Shop vous permet de creer creer une boutique en ligne 
-                            faciliter <br> votre visibilite
+                            La communauté de Haraka s'est lancé dans la Création d'un Service rentable pour <br>
+                            la vente directe de vos produits
                         </p>
                     </div>
                     <div class="service_rendu">
                         <div class="service_rendu_item">
-                            <ion-icon name="wallet"></ion-icon>
-                            <h3 class="title_service_rendu">Creez Votre Boutique</h3>
+                            <h3 class="title_service_rendu">Notre Vision</h3>
                             <p class="description_service_rendu">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                 Eum consequatur illum libero natus sed nemo recusandae
+                                 Eum consequatur illum libero natus sed nemo recusandae Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dicta inventore consectetur sed asperiores sint!
                             </p>
-                            <a href="" class="ask_question">
-                                En Savoir Plus <ion-icon name="arrow-forward-outline"></ion-icon>
-                            </a>
                         </div>
                         <div class="service_rendu_item">
-                            <ion-icon name="gift"></ion-icon>
-                            <h3 class="title_service_rendu">Gerer Ta Boutique</h3>
+                            <h3 class="title_service_rendu">Notre Vision</h3>
                             <p class="description_service_rendu">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                 Eum consequatur illum libero natus sed nemo recusandae
+                                 Eum consequatur illum libero natus sed nemo recusandae Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea soluta totam facere rerum quidem.
                             </p>
-                            <a href="" class="ask_question">
-                                En Savoir Plus <ion-icon name="arrow-forward-outline"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="service_rendu_item">
-                            <ion-icon name="key"></ion-icon>
-                            <h3 class="title_service_rendu">Activer la Version Premium</h3>
-                            <p class="description_service_rendu">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                 Eum consequatur illum libero natus sed nemo recusandae
-                            </p>
-                            <a href="" class="ask_question">
-                                En Savoir Plus <ion-icon name="arrow-forward-outline"></ion-icon>
-                            </a>
                         </div>
                     </div>
                     <div class="help_service">
                         <h1 class="item_service_title ready">
-                            Pret a Decouvrir Haraka Shop ?
+                            Notre Equipe
                         </h1>
                         <p class="item_service_desc">
-                            Contactez Notre Service d'administration
-                            pour plus des questions et renseignements
+                            Les Hommes experimentes et qui vous accompagent derriere Haraka Shop
                         </p>
-                         <button id="rapid_help">Besoin D'aide Rapide <ion-icon name="arrow-forward-outline"></ion-icon></button>
+                    </div>
+                    <div class="team_">
+                        <div class="team_member">
+                            <div class="team_content">
+                                <img src="https://lacrea-devs-off.onrender.com/image_dev/noble.jpg" alt="">
+                                <div class="team_content_about">
+                                    <h3 class="member_name">Noble Rich</h3>
+                                    <p class="member_description">CEO & Web Dev </p>
+                                </div>
+                            </div>
+                            <div class="team_content">
+                                <img src="https://lacrea-devs-off.onrender.com/image_dev/joel.jpg" alt="">
+                                <div class="team_content_about">
+                                    <h3 class="member_name">Joel M</h3>
+                                    <p class="member_description">Data Dev</p>
+                                </div>
+                            </div>
+                            <div class="team_content">
+                                <img src="/assets/img/product/phone/piscas-removebg-preview.png" alt="">
+                                <div class="team_content_about">
+                                    <h3 class="member_name">Piscas Mwambali</h3>
+                                    <p class="member_description">Web Designer </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
